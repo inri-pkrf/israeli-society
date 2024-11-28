@@ -1,0 +1,190 @@
+.hamburger-icon {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    top: 3%;
+    left: 5%;
+    height: 44px;
+    z-index: 1001; /* להבטיח שהאייקון נמצא מעל התפריט */
+    cursor: pointer;
+}
+
+.hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    margin: 4px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1001; /* לוודא שהקווים נמצאים מעל התפריט */
+}
+
+/* מצבים לקווים כשהם פתוחים (מראים איקס) */
+.hamburger-line.open:nth-child(1) {
+    background-color: white;
+    transform: rotate(45deg) translate(6px, 4px);
+}
+
+.hamburger-line.open:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-line.open:nth-child(3) {
+    background-color: white;
+    transform: rotate(-45deg) translate(11px, -9px);
+}
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #175a85;
+    z-index: 20; /* התפריט נמצא מתחת לאייקון */
+    text-align: right;
+    padding-top: 2vh;
+    overflow-y: auto;
+    transform: translateX(-100%); /* התפריט מוסתר בהתחלה */
+    transition: transform 0.4s ease-in-out; /* אפקט סלייד */
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #175a85;
+    z-index: 20; /* התפריט נמצא מתחת לאייקון */
+    text-align: right;
+    padding-top: 2vh;
+    overflow-y: auto;
+    transform: translateX(-100%); /* התפריט מוסתר בהתחלה */
+    transition: transform 0.4s ease-in-out; /* אפקט סלייד */
+}
+
+.menu.open {
+    transform: translateX(0); /* הזזת התפריט למקומו */
+}
+
+.menu.close {
+    transform: translateX(-100%); /* החזרת התפריט לצד שמאל */
+}
+
+.menu-title {
+    font-size: 8vw;
+    color: white;
+    margin-bottom: 5vh;
+    margin-top: 19vh;
+    margin-right: 4vw;
+    text-align: center;
+    padding: 5vw;
+    font-size: 3em;
+    font-family: "Karantina" ,Arial;
+}
+
+.menu-list {
+    color: white;
+    margin-top: 18vh;
+    padding: 1.5vh 0;
+    text-align: center;
+    font-size: 1.3em;
+    font-family: "Heebo";
+}
+.submenu {
+    list-style-type: none; /* מסיר את העיגולים */
+    padding-left: 0; /* מסיר רווח שמצוין על ידי הרשימה */
+  }
+  
+
+
+.menu-list li {
+    color: white;
+    margin-bottom: 3vh;
+    padding: 2vh ;
+    text-align: center;
+    font-size: 1.3em;
+    font-family: "Heebo" ,Arial;
+}
+
+.lineMenu {
+    border-bottom: 0.2vh solid white;
+    width: 86vw;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: -2vh;
+}
+
+.whiteLogoHam {
+    height: 16vh;
+    width: auto;
+    position: absolute;
+    transform: translateX(50%);
+    right: 50%;
+}
+
+.mashov-menu{
+    font-family: 'Heebo', sans-serif;
+    font-size: 4vw;
+    color: white;
+    text-align: center;
+    position: absolute;
+    margin-top: 0vh;
+    right: 50%;
+    transform: translateX(50%);
+    width: 67vw;
+  }
+  
+  .mashovTextMenu{
+    margin-bottom: 6vh;
+    font-family: "Heebo";
+    text-align: center;
+    font-size: 1.1em;
+  }
+
+   
+  #linkMenu{
+    color: white;
+  }
+
+  /* כפתור "בוחן" שלא מאופשר */
+.fade {
+    opacity: 0.5; /* שקיפות נמוכה */
+  }
+  
+  /* לא לאפשר לחיצה על כפתור "בוחן" */
+  li.fade {
+    pointer-events: none; /* לא יאפשר אינטרקציה עם הכפתור */
+  }
+  
+  /* כשלא פעיל, הסמן יראה כלא זמין */
+  li[style*="not-allowed"] {
+    cursor: not-allowed;
+  }
+  /* CSS להוספת אפקטים */
+.menu-item.locked {
+    opacity: 0.5; /* fade חלק נעול */
+    pointer-events: none; /* ביטול אינטראקציה עם חלקים נעולים */
+  }
+  
+  .lock-icon {
+    margin-left: 8px; /* ריווח בין המנעול לשם */
+    height:3vh;
+    width:auto;
+  }
+  
+  /* סגנון החץ */
+.dropdown-arrow {
+    transform: scale(-1);
+    transition: transform 0.3s ease; /* הוספת אנימציה לרוטציה */
+    display: inline-block;
+    padding-left: 14px;
+  }
+  
+  .dropdown-arrow.open {
+    transform: rotate(90deg); /* סיבוב ב-180 מעלות כאשר הרשימה פתוחה */
+  }
+  

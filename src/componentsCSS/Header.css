@@ -1,0 +1,60 @@
+.header {
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    height: 15vh;
+    z-index: 10000;
+    background-color: white; 
+  }
+  
+.header2 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 15vh;
+  z-index: 10000;
+  background-color: #203160;
+  }
+  
+  .App-logo {
+    height: 8vh;
+    width: auto;
+    position: fixed;
+    top: 2vh;
+    right: 5vw;
+  }
+
+.back-homeNav{
+  height: 8vh;
+  width:35vw;
+  top: 2vh;
+  right: 5vw;
+  position: fixed;
+  background-color: transparent;
+  border: none;
+
+
+}
+
+
+  .right-logo-link {
+    position: fixed;
+    top: 10px;
+    left: 10px; /* Positioning the icon to the left */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .decorative-photo {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 42vw; 
+    height: auto;
+    z-index: -1; 
+  }
+  
+ .hamburger{
+    position: absolute;
+    top:5%;
+    left:5%;
+ }

@@ -5,6 +5,7 @@ import Intro from './componentsJS/Intro';
 import Home from './componentsJS/Home';
 import Header from './componentsJS/Header';
 import Menu from './componentsJS/Menu';
+import PartOne from './componentsJS/PartOne';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Intro />} />
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/part-one" element={<PartOne />} />
         </Routes>
     </div>
   );

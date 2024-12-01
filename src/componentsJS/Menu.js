@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import '../componentsCSS/Menu.css';
 
-const Home = () => {
+const Menu = () => {
   const navigate = useNavigate();
 
 
@@ -18,4 +18,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Menu;

@@ -9,62 +9,60 @@ const Hamburger = () => {
     return storedPages;
   });
   const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState({}); // Track which dropdowns are open
+  const [openDropdown, setOpenDropdown] = useState({});
 
   const handleClick = () => {
     setIsOpen(!isOpen);
-  };
-  const handleMenuClick = (path, isSubtopic = false) => {
-    // אם מדובר בתת-נושא, יש לאפשר את המעבר
-    if (isSubtopic) {
-      navigate(path);
-    } else {
-      // אם מדובר בחלק ראשי, בודקים אם הדף נפתח והאם יש גישה אליו
-      if (path !== '/menu' && path !== '/part-one' && !visitedPages.includes(path)) return;
-      setIsOpen(false); // Close the menu after selection
-      navigate(path);
-    }
-  };
-  
-  
-  const handleSubmenuToggle = (path) => {
-    navigate(path);
   };
 
   const toggleDropdown = (path) => {
     setOpenDropdown((prev) => ({
       ...prev,
-      [path]: !prev[path], // להפוך את המצב של ה-dropdown אם הוא פתוח או סגור
+      [path]: !prev[path],
     }));
   };
-  
+
+  const handleMenuClick = (path) => {
+    if (!visitedPages.includes(path)) {
+      const updatedVisitedPages = [...visitedPages, path];
+      setVisitedPages(updatedVisitedPages);
+      sessionStorage.setItem('visitedPages', JSON.stringify(updatedVisitedPages));
+    }
+
+    navigate(path);
+    setIsOpen(false);
+    console.log('Visited pages:', visitedPages);
+    console.log('Current path:', path);
+  };
 
   const parts = [
-    { name: 'עמוד הבית', path: '/menu', locked: false, subtopics: [] }, // No dropdown for home
-    { 
-      name: 'חלק ראשון', 
-      path: '/part-one', 
-      locked: false, 
-      subtopics: [
-        { name: 'רבדי החברה הישראלית', path: '/subtopic1' }
-      ] 
-    }, // Dropdown for part one
-    { 
-      name: 'חלק שני', 
-      path: '/part-two', 
-      locked: !visitedPages.includes('/part-one'),
+    { name: 'עמוד הבית', path: '/menu', locked: false, subtopics: [] },
+    {
+      name: 'חלק ראשון',
+      path: '/part-one',
+      locked: false,
+      subtopics: [{ name: 'רבדי החברה הישראלית', path: '/podcast' }],
+    },
+    {
+      name: 'חלק שני',
+      path: '/part-two',
+      locked: !visitedPages.includes('/part-one') && !visitedPages.includes('/podcast'),
       subtopics: [
         { name: 'החברה החרדית', path: '/subtopic2' },
         { name: 'החברה הערבית', path: '/subtopic3' },
         { name: 'מוגבלויות + הגיל השלישי', path: '/subtopic4' },
- 
-      ] 
-    }, // Dropdown for part two, locked based on part one completion
-    { name: 'חלק שלישי', path: '/part-three', locked: !visitedPages.includes('/part-two'),  subtopics: [
-      { name: 'משחק קווים משיקים', path: '/subtopic5' },
-      { name: 'נקודות נוספות', path: '/subtopic6' }
-    ] }, 
-    { name: 'בוחן סיום', path: '/final', locked: !visitedPages.includes('/part-three'), subtopics: [] }
+      ],
+    },
+    {
+      name: 'חלק שלישי',
+      path: '/part-three',
+      locked: !visitedPages.includes('/part-two') && !visitedPages.includes('/subtopic2') && !visitedPages.includes('/subtopic3') && !visitedPages.includes('/subtopic4'),
+      subtopics: [
+        { name: 'משחק קווים משיקים', path: '/subtopic5' },
+        { name: 'נקודות נוספות', path: '/subtopic6' },
+      ],
+    },
+    { name: 'בוחן סיום', path: '/final', locked: !visitedPages.includes('/part-three'), subtopics: [] },
   ];
 
   return (
@@ -81,43 +79,42 @@ const Hamburger = () => {
           {parts.map((part, index) => (
             <React.Fragment key={index}>
               <li
-                onClick={() => handleMenuClick(part.path)}
                 className={`menu-item ${visitedPages.includes(part.path) ? 'active' : ''} ${part.locked ? 'fade' : ''}`}
                 style={{ cursor: part.locked ? 'not-allowed' : 'pointer' }}
+                onClick={() => !part.locked && handleMenuClick(part.path)}
               >
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                 
-             
-                {part.locked && (
-                    <img src={`${process.env.PUBLIC_URL}/assets/imgs/lock.png`} alt="Lock Icon"  className='lock-icon' />
+                <div style={{ display: 'flex', alignItems: 'center', }}>
+                  {part.locked && (
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/imgs/lock.png`}
+                      alt="Lock Icon"
+                      className="lock-icon"
+                    />
                   )}
                   {part.name}
                   {part.subtopics.length > 0 && (
-                  <img
-                    src={`${process.env.PUBLIC_URL}/assets/imgs/next.png`} // הנתיב לתמונה
-                    alt="Next" // תיאור התמונה
-                    className={`dropdown-arrow ${openDropdown[part.path] ? 'open' : ''}`} // הוספת ה-class open אם ה-dropdown פתוח
-                    onClick={(e) => { 
-                      e.stopPropagation(); // למנוע את הפעלת ה-click של התפריט הראשי
-                      toggleDropdown(part.path); // הפעלת פעולת dropdown
-                    }}
-                    disabled={part.locked} // אם זה נעול, התמונה תהיה לא לחיצה
-                  />
-                )}
-                
-               
+                    <img
+                      src={`${process.env.PUBLIC_URL}/assets/imgs/next.png`}
+                      alt="Next"
+                      className={`dropdown-arrow ${openDropdown[part.path] ? 'open' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleDropdown(part.path);
+                      }}
+                    />
+                  )}
                 </div>
-                {openDropdown[part.path] && !part.locked && part.subtopics.length > 0 && (
+                {openDropdown[part.path] && part.subtopics.length > 0 && (
                   <ul className="submenu-list">
-                     {part.subtopics.map((subtopic, subIndex) => (
-                        <li
-                          key={subIndex}
-                          onClick={() => handleSubmenuToggle(subtopic.path)} // השתמש ב- handleSubmenuToggle כאן
-                          className="submenu-item"
-                        >
-                          {subtopic.name}
-                        </li>
-                      ))}
+                    {part.subtopics.map((subtopic, subIndex) => (
+                      <li
+                        key={subIndex}
+                        onClick={() => handleMenuClick(subtopic.path)}
+                        className="submenu-item"
+                      >
+                        {subtopic.name}
+                      </li>
+                    ))}
                   </ul>
                 )}
               </li>

@@ -1,5 +1,5 @@
 
-#part-one {
+#part-two {
     position: fixed;
     top: 15vh;
     left: 0;
@@ -13,7 +13,7 @@
     direction: rtl;
 }
  
-.PartOne-title{
+.Parttwo-title{
     font-family: "karantina";
     font-size: 3em;
     font-weight: 400;
@@ -26,7 +26,7 @@
     text-align: center;
 
 }
-.part-titleOne{
+.part-titletwo{
     font-family: "heebo";
     margin-top: 8vh;
     right: 50%;
@@ -37,7 +37,7 @@
     position: absolute;
 }
 
-.instructions-partOne{
+.instructions-parttwo{
     font-family: "heebo";
     margin-top: 34vh;
     font-size: 1.6em;

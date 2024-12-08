@@ -1,0 +1,43 @@
+{
+    "נקודה ראשונה":{
+        "title":"כותרת לנקודה החשובה שבטח תיקח שתי שורות ",
+        "id":1,
+        "podcastSrc":"${process.env.PUBLIC_URL}/assets/media/part1.mp3",
+        "animationVideo":"${process.env.PUBLIC_URL}/assets/media/part1.mp4"
+       
+    },
+    "נקודה שניה":{
+        "title":"כותרת לנקודה החשובה שבטח תיקח שתי שורות ",
+        "id":2,
+        "podcastSrc":"${process.env.PUBLIC_URL}/assets/media/part1.mp3",
+        "animationVideo":"${process.env.PUBLIC_URL}/assets/media/part1.mp4"
+       
+    },
+    "נקודה שלישית":{
+        "title":"כותרת לנקודה החשובה שבטח תיקח שתי שורות ",
+        "id":3,
+        "podcastSrc":"${process.env.PUBLIC_URL}/assets/media/part1.mp3",
+        "animationVideo":"${process.env.PUBLIC_URL}/assets/media/part1.mp4"
+       
+    },
+    "נקודה רביעית":{
+        "title":"כותרת לנקודה החשובה שבטח תיקח שתי שורות ",
+        "id":4,
+        "podcastSrc":"${process.env.PUBLIC_URL}/assets/media/part1.mp3",
+        "animationVideo":"${process.env.PUBLIC_URL}/assets/media/part1.mp4"
+       
+    },
+    "נקודה חמישית":{
+        "title":"כותרת לנקודה החשובה שבטח תיקח שתי שורות ",
+        "id":5,
+        "podcastSrc":"${process.env.PUBLIC_URL}/assets/media/part1.mp3",
+        "animationVideo":"${process.env.PUBLIC_URL}/assets/media/part1.mp4"
+       
+    }
+  
+
+
+
+
+  }
+  

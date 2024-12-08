@@ -17,6 +17,12 @@ const PartOne = () => {
       </h1>
       <p className='instructions-partOne'>בחלון הבא יופיעו בפניכם סמנים לבנים, יש ללחוץ על העיגול הלבן כדי לצפות בתוכן ולהתקדם. 
       </p>
+      <div className="go-next">
+      <img className="next-cir" src={`${process.env.PUBLIC_URL}/assets/imgs/nextBtn.png`} onClick={()=>{navigate("/podcast")}} />
+      <img  className="next-arrow" src={`${process.env.PUBLIC_URL}/assets/imgs/arrow.png`}  />
+      <p  className="next-text">יאללה ממשיכים</p>
+
+      </div>
 
  
 <div className="footer"></div>

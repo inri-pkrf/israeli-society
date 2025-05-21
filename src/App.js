@@ -8,9 +8,6 @@ import Menu from './componentsJS/Menu';
 import PartOne from './componentsJS/PartOne';
 import PartTwo from './componentsJS/PartTwo';
 import PartThree from './componentsJS/PartThree';
-import Podcast from './componentsJS/Podcast';
-
-
 function App() {
 
 
@@ -23,7 +20,6 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/part-one" element={<PartOne />} />
-        <Route path="/podcast" element={<Podcast />} />
         <Route path="/part-two" element={<PartTwo />} />
         <Route path="/part-three" element={<PartThree />} />
 

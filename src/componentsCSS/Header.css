@@ -2,7 +2,7 @@
     position: fixed; 
     top: 0;
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     z-index: 10000;
     background-color: white; 
   }
@@ -11,7 +11,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 15vh;
+  height: 10vh;
   z-index: 10000;
   background-color: #203160;
   }

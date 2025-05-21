@@ -19,6 +19,19 @@
   margin: 4px 0;
   transition: 0.4s;
 }
+.hamburger-line.open:nth-child(1) {
+    background-color: white;
+    transform: rotate(45deg) translate(6px, 4px);
+}
+
+.hamburger-line.open:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-line.open:nth-child(3) {
+  background-color: white;
+  transform: rotate(-45deg) translate(14px, -12px);
+}
 
 .menu {
     position: fixed;

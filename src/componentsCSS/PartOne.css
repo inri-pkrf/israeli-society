@@ -1,18 +1,31 @@
 
-#part-one {
+#partOne {
     position: fixed;
-    top: 15vh;
+    top: 10vh;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
-    align-items: center;
     z-index: 9990;
     background-image: url('/public/assets/imgs/Bg2.png');
     direction: rtl;
 }
- 
+
+.circle-div{
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: white;
+    height: 90vh;
+    margin-top: 13vh;
+    width: 107vh;
+    right: 50%;
+    transform: translateX(50%);
+    position: absolute;
+}
+
+
+
 .PartOne-title{
     font-family: "karantina";
     font-size: 3em;
@@ -21,68 +34,51 @@
     right: 50%;
     transform: translateX(50%);
     width: 90vw;
-    color: #ffffff;
-    margin-top: 15vh;
+    color: #535353;
+    margin-top: 13vh;
     text-align: center;
 
 }
-.part-titleOne{
-    font-family: "heebo";
-    margin-top: 8vh;
+
+.audio-container{
+    position: absolute;
     right: 50%;
     transform: translateX(50%);
-    width: 100vw;
-    color: #ffffff;
+    width: 90vw;
+    margin-top: 25vh;
+
+}
+.PartOne-subTitle{
+    font-family: "Heebo";
+    font-size: 1.2em;
+    font-weight: 400;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90vw;
+    color: #535353;
+    margin-top: 5vh;
     text-align: center;
-    position: absolute;
 }
-
-.instructions-partOne{
-    font-family: "heebo";
-    margin-top: 34vh;
-    font-size: 1.6em;
+.PartOne-explaining{
+    font-family: "Heebo";
+    font-size: 1.2em;
+    font-weight: 400;
+    position: absolute;
     right: 50%;
     transform: translateX(50%);
-    width: 85vw;
-    color: #ffffff;
+    width: 90vw;
+    color: #535353;
+    margin-top: 55vh;
     text-align: center;
-    position: absolute;
 }
-
-.next-cir{
-    position:absolute;
-    right: 50%;
-    transform: translateX(50%);
-    width:auto;
-    height:8vh;
-
-
-}
-
-.next-arrow{
-    position: absolute;
-    width:auto;
-    height:8vh;
-    transform: rotate(200deg);
-    right:10vw;
-    bottom:5vh;
-
-}
-
-.go-next{
-    height: 20vh;
-    width: 60vw;
+.white-cactus{
     position: absolute;
     right: 50%;
     transform: translateX(50%);
-    margin-top: 61vh;
-
-}
-.next-text{
-    position:absolute;
-    bottom:-3vh;
-    font-family:"Heebo";
-    color:white;
-    right:1vw;
+    height: 12vh;
+    width: auto;
+    margin-top: -1vh;
+    z-index: 100000;
 
 }

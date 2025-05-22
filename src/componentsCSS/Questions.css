@@ -1,0 +1,113 @@
+.questions {
+    position: relative;
+    top: 35vh;
+    left: 0;
+    width: 90vw;
+    height: 120vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    direction: rtl;
+    overflow-y: scroll;
+  }
+  
+  .questions-card {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+    width: 98vw;
+    height: 48vh;
+    border-radius: 30px;
+    background-color: #d3d3d3;
+  }
+  
+
+
+
+.questions {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Heebo";
+    
+  }
+  
+  .answers {
+    display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: -2vh;
+        margin-bottom: 20px;
+  }
+  
+  .answer-button {
+    padding: 10px;
+    font-size: 1.2em;
+    background-color: transparent;
+    width:80vw;
+    height: 8vh;
+    border-radius: 30px;
+    font-family: "Heebo";
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    cursor: pointer;
+  }
+  
+  .answer-button.selected {
+    background-color: #d3d3d3;
+  }
+  
+  .next-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .feedback {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .feedback.correct {
+    color: #4caf50; /* ירוק */
+  }
+  
+  .feedback.wrong {
+    color: #f44336; /* אדום */
+  }
+  .next-step-button-Q {
+    margin-top: 30px;
+    padding: 10px 25px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    background-color:#1bbfe5;
+    color: white;
+    border: none;
+    font-family: "Heebo";
+    cursor: pointer;
+    width:60vw;
+  }
+  .excelent{
+    font-family: "Heebo";
+    font-size: 1.2em;
+    font-weight: 400;
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90vw;
+    color: #535353;
+    text-align: center;
+  }
+  .Q-title{
+    font-family: "karantina";
+    font-size: 2em;
+    font-weight: 400;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90vw;
+    color: #535353;
+    margin-top: -6vh;
+    text-align: center;
+  }
+ 

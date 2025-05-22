@@ -43,6 +43,7 @@ const videoData = {
     "החברה הערבית": {
       title: "החברה הערבית",     
        imgSrc:`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusArab.png`,
+       videoInfo:`צפו בסרטון הבא להסבר על ההבדלים והאתגרים בחברה הערבית, בסיומו, נשאל שאלות להבנה.`,
 
       videoSrc: `${process.env.PUBLIC_URL}/assets/media/arabVid.mp4`,
       questions: [
@@ -82,7 +83,11 @@ const videoData = {
     },
     "מוגבלויות והגיל השלישי": {
       title: "מוגבלויות והגיל השלישי",
+      imgSrc:`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusOld.png`,
+      videoInfo:`צפו בסרטון הבא להסבר על ההבדלים והאתגרים לגיל השלישי ואוכלוסיה עם מוגבלויות, בסיומו, נשאל שאלות להבנה.`,
+
       videoSrc: `${process.env.PUBLIC_URL}/assets/media/oldbVid.mp4`,
+
       questions: [
         {
           question: "שאלה1",

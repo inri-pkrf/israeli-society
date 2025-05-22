@@ -16,21 +16,27 @@
     border: 1px solid white;
     border-radius: 50%;
     background-color: white;
-    height: 90vh;
-    margin-top: 13vh;
+    height: 99vh;
+    margin-top: 5vh;
     width: 107vh;
     right: 50%;
     transform: translateX(50%);
     position: absolute;
 }
 
-.white-cactus{
+.cactus-img{
     position: absolute;
     right: 50%;
     transform: translateX(50%);
     height: 12vh;
     width: auto;
-    margin-top: -1vh;
+    margin-top: 7vh;
     z-index: 100000;
 
+}
+.page-title-video{
+    font-family: "karantina";
+    color:rgb(40, 40, 134);
+    font-size: 2.5em;
+    margin-top: 15vh;
 }

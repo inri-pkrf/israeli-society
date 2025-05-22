@@ -23,6 +23,7 @@ const PartTwo = () => {
       <img className="next-cir" src={`${process.env.PUBLIC_URL}/assets/imgs/nextBtn.png`} onClick={()=>{navigate("/subChosing")}} />
       <img  className="next-arrow" src={`${process.env.PUBLIC_URL}/assets/imgs/arrow.png`}  />
       <p  className="next-text">יאללה ממשיכים</p>
+      
 
       </div>
 

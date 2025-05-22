@@ -1,0 +1,36 @@
+
+#videoPage {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 9990;
+    background-image: url('/public/assets/imgs/Bg2.png');
+    direction: rtl;
+}
+
+.circle-div-video{
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: white;
+    height: 90vh;
+    margin-top: 13vh;
+    width: 107vh;
+    right: 50%;
+    transform: translateX(50%);
+    position: absolute;
+}
+
+.white-cactus{
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    height: 12vh;
+    width: auto;
+    margin-top: -1vh;
+    z-index: 100000;
+
+}

@@ -82,3 +82,17 @@
     z-index: 100000;
 
 }
+.next-button {
+    margin-top: 66vh;
+    padding: 10px 20px;
+    font-size: 1.3em;
+    background-color: #1bbfe5;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: "Heebo";
+
+  }
+  
+ 

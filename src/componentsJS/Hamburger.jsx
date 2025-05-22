@@ -22,17 +22,23 @@ const Hamburger = () => {
     }));
   };
 
-  const handleMenuClick = (path) => {
+  const handleMenuClick = (item) => {
+    const path = item.path || '/video-page';
+    const isPromptItem = !!item.prompt;
+
     if (!visitedPages.includes(path)) {
       const updatedVisitedPages = [...visitedPages, path];
       setVisitedPages(updatedVisitedPages);
       sessionStorage.setItem('visitedPages', JSON.stringify(updatedVisitedPages));
     }
 
-    navigate(path);
+    if (isPromptItem) {
+      navigate('/video-page', { state: { prompt: item.prompt } });
+    } else {
+      navigate(path);
+    }
+
     setIsOpen(false);
-    console.log('Visited pages:', visitedPages);
-    console.log('Current path:', path);
   };
 
   const parts = [
@@ -48,21 +54,30 @@ const Hamburger = () => {
       path: '/part-two',
       locked: !visitedPages.includes('/part-one') && !visitedPages.includes('/podcast'),
       subtopics: [
-        { name: 'החברה החרדית', path: '/subtopic2' },
-        { name: 'החברה הערבית', path: '/subtopic3' },
-        { name: 'מוגבלויות + הגיל השלישי', path: '/subtopic4' },
+        { name: 'החברה החרדית', prompt: 'החברה החרדית' },
+        { name: 'החברה הערבית', prompt: 'החברה הערבית' },
+        { name: 'מוגבלויות + הגיל השלישי', prompt: 'הגיל השלישי ועם מוגבלויות' },
       ],
     },
     {
       name: 'חלק שלישי',
       path: '/part-three',
-      locked: !visitedPages.includes('/part-two') && !visitedPages.includes('/subtopic2') && !visitedPages.includes('/subtopic3') && !visitedPages.includes('/subtopic4'),
+      locked:
+        !visitedPages.includes('/part-two') &&
+        !visitedPages.includes('/subtopic2') &&
+        !visitedPages.includes('/subtopic3') &&
+        !visitedPages.includes('/subtopic4'),
       subtopics: [
         { name: 'משחק קווים משיקים', path: '/subtopic5' },
         { name: 'נקודות נוספות', path: '/subtopic6' },
       ],
     },
-    { name: 'בוחן סיום', path: '/final', locked: !visitedPages.includes('/part-three'), subtopics: [] },
+    {
+      name: 'בוחן סיום',
+      path: '/final',
+      locked: !visitedPages.includes('/part-three'),
+      subtopics: [],
+    },
   ];
 
   return (
@@ -81,9 +96,9 @@ const Hamburger = () => {
               <li
                 className={`menu-item ${visitedPages.includes(part.path) ? 'active' : ''} ${part.locked ? 'fade' : ''}`}
                 style={{ cursor: part.locked ? 'not-allowed' : 'pointer' }}
-                onClick={() => !part.locked && handleMenuClick(part.path)}
+                onClick={() => !part.locked && handleMenuClick(part)}
               >
-                <div style={{ display: 'flex', alignItems: 'center', }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
                   {part.locked && (
                     <img
                       src={`${process.env.PUBLIC_URL}/assets/imgs/lock.png`}
@@ -109,7 +124,7 @@ const Hamburger = () => {
                     {part.subtopics.map((subtopic, subIndex) => (
                       <li
                         key={subIndex}
-                        onClick={() => handleMenuClick(subtopic.path)}
+                        onClick={() => handleMenuClick(subtopic)}
                         className="submenu-item"
                       >
                         {subtopic.name}

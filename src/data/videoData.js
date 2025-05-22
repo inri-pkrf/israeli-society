@@ -41,7 +41,9 @@ const videoData = {
       ],
     },
     "החברה הערבית": {
-      title: "החברה הערבית",
+      title: "החברה הערבית",     
+       imgSrc:`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusArab.png`,
+
       videoSrc: `${process.env.PUBLIC_URL}/assets/media/arabVid.mp4`,
       questions: [
         {

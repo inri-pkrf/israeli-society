@@ -4,10 +4,15 @@ import '../componentsCSS/Hamburger.css';
 
 const Hamburger = () => {
   const navigate = useNavigate();
+
   const [visitedPages, setVisitedPages] = useState(() => {
-    const storedPages = JSON.parse(sessionStorage.getItem('visitedPages')) || [];
-    return storedPages;
+    return JSON.parse(sessionStorage.getItem('visitedPages')) || [];
   });
+
+  const [visitedPrompts, setVisitedPrompts] = useState(() => {
+    return JSON.parse(sessionStorage.getItem('visitedPrompts')) || [];
+  });
+
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState({});
 
@@ -27,12 +32,18 @@ const Hamburger = () => {
     const isPromptItem = !!item.prompt;
 
     if (!visitedPages.includes(path)) {
-      const updatedVisitedPages = [...visitedPages, path];
-      setVisitedPages(updatedVisitedPages);
-      sessionStorage.setItem('visitedPages', JSON.stringify(updatedVisitedPages));
+      const updatedPages = [...visitedPages, path];
+      setVisitedPages(updatedPages);
+      sessionStorage.setItem('visitedPages', JSON.stringify(updatedPages));
     }
 
     if (isPromptItem) {
+      if (!visitedPrompts.includes(item.prompt)) {
+        const updatedPrompts = [...visitedPrompts, item.prompt];
+        setVisitedPrompts(updatedPrompts);
+        sessionStorage.setItem('visitedPrompts', JSON.stringify(updatedPrompts));
+      }
+
       navigate('/video-page', { state: { prompt: item.prompt } });
     } else {
       navigate(path);
@@ -40,6 +51,15 @@ const Hamburger = () => {
 
     setIsOpen(false);
   };
+
+  const allPromptsViewed = ['החברה החרדית', 'החברה הערבית', 'הגיל השלישי ועם מוגבלויות'].every(p =>
+    visitedPrompts.includes(p)
+  );
+
+  const gameStepsViewed =
+    visitedPages.includes('/game-intro') &&
+    visitedPages.includes('/game') &&
+    visitedPages.includes('/summary-points');
 
   const parts = [
     { name: 'עמוד הבית', path: '/menu', locked: false, subtopics: [] },
@@ -52,7 +72,7 @@ const Hamburger = () => {
     {
       name: 'חלק שני',
       path: '/part-two',
-      locked: !visitedPages.includes('/part-one') && !visitedPages.includes('/podcast'),
+      locked: !(visitedPages.includes('/part-one') || visitedPages.includes('/podcast')),
       subtopics: [
         { name: 'החברה החרדית', prompt: 'החברה החרדית' },
         { name: 'החברה הערבית', prompt: 'החברה הערבית' },
@@ -62,20 +82,17 @@ const Hamburger = () => {
     {
       name: 'חלק שלישי',
       path: '/part-three',
-      locked:
-        !visitedPages.includes('/part-two') &&
-        !visitedPages.includes('/subtopic2') &&
-        !visitedPages.includes('/subtopic3') &&
-        !visitedPages.includes('/subtopic4'),
+      locked: !allPromptsViewed,
       subtopics: [
-        { name: 'משחק קווים משיקים', path: '/subtopic5' },
-        { name: 'נקודות נוספות', path: '/subtopic6' },
+        { name: 'משחק קווים משיקים', path: '/game-intro' },
+        { name: 'המשחק', path: '/game' },
+        { name: '10 נקודות שחשוב לזכור', path: '/summary-points' },
       ],
     },
     {
       name: 'בוחן סיום',
       path: '/final',
-      locked: !visitedPages.includes('/part-three'),
+      locked: !gameStepsViewed,
       subtopics: [],
     },
   ];
@@ -137,7 +154,7 @@ const Hamburger = () => {
           ))}
         </ul>
 
-        <div className="mashov-menu">
+        {/* <div className="mashov-menu">
           <div className="mashovTextMenu">
             <br /> יש הערות על הממשק? יש מחמאות? מלאו את השאלון וצרו איתנו קשר
             <br />
@@ -150,7 +167,7 @@ const Hamburger = () => {
               בקישור הבא
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

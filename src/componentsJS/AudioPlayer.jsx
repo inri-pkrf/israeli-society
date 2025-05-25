@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import '../componentsCSS/AudioPlayer.css';
 
-const AudioPlayer = ({ src, name, onEnded }) => {
+const AudioPlayer = ({ src, name, onEnded, isDarkMode = false }) => {
   const audioRef = useRef(null);
   const progressBarRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -75,24 +75,24 @@ const AudioPlayer = ({ src, name, onEnded }) => {
     return `${minutes}:${seconds}`;
   };
 
+  const playButtonImage = isDarkMode
+    ? `${process.env.PUBLIC_URL}/assets/imgs/stop-dark.png`
+    : `${process.env.PUBLIC_URL}/assets/imgs/stop-light.png`;
+
+  const micIconImage = isDarkMode
+    ? `${process.env.PUBLIC_URL}/assets/imgs/microphone-dark.png`
+    : `${process.env.PUBLIC_URL}/assets/imgs/microphone-light.png`;
+
   return (
-    <div className="voiceeffect-rectangle">
+    <div className={`voiceeffect-rectangle `}>
       <span className="voiceeffect-text">{name}</span>
 
       <button className="audio-button" onClick={togglePlay}>
-        {isPlaying ? (
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/imgs/stop-button.jpg`}
-            alt="עצור"
-            className="mic-icon"
-          />
-        ) : (
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/imgs/microphone.jpg`}
-            alt="האזן"
-            className="mic-icon"
-          />
-        )}
+        <img
+          src={isPlaying ? playButtonImage : micIconImage}
+          alt={isPlaying ? 'עצור' : 'האזן'}
+          className="mic-icon"
+        />
       </button>
 
       <div
@@ -104,8 +104,15 @@ const AudioPlayer = ({ src, name, onEnded }) => {
       </div>
 
       <div className="time-display">
-        {formatTime(currentTime)} / {formatTime(duration)}
-      </div>
+  <span className={`time-current ${isDarkMode ? 'dark' : 'light'}`}>
+    {formatTime(currentTime)}
+  </span>
+  {' / '}
+  <span className={`time-duration ${isDarkMode ? 'light' : 'dark'}`}>
+    {formatTime(duration)}
+  </span>
+</div>
+
 
       <audio ref={audioRef} src={src} />
     </div>

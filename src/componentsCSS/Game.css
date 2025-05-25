@@ -1,0 +1,104 @@
+ .Gamepage-container {
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 2000; /* Ensure it appears above the header */
+  text-align: right;
+  padding-top: 2vh;
+  overflow: hidden;
+}
+
+
+
+
+.Game-title{
+    font-family: "karantina";
+    font-size: 3em;
+    font-weight: 400;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90vw;
+    color: #1bbfe5;
+    margin-top: 13vh;
+    text-align: center;
+
+}
+
+.info-game{
+    font-family: "Heebo";
+    font-size: 1.3em;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90vw;
+    margin-top: 30vh;
+    text-align: center;
+
+}
+
+.statement-list {
+    position: relative;
+    right: 50%;
+    transform: translateX(75%);
+    margin-top: 40vh;
+    width: 80vw;
+    text-align: center;
+  }
+  
+  .statement-box {
+    background-color: #66c0f4;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px 0;
+    color: white;
+    font-weight: bold;
+    cursor: grab;
+    user-select: none;
+  }
+  
+  .dropzones {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  .dropzone {
+    width: 120px;
+    height: 160px;
+    border-radius: 24px;
+    background-color: #a0d9f500;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .dropzone.correct {
+    margin-left: auto;
+  }
+  
+  .dropzone img {
+    max-width: 80px;
+    margin-bottom: 10px;
+  }
+  
+  .score {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .game-order{
+    font-family: "Heebo";
+    direction: rtl;
+    text-align: center;
+    font-size: 1.2em;
+    color:rgb(51, 51, 51);
+    font-weight: bold;
+  }

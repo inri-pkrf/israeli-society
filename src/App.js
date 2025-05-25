@@ -8,8 +8,11 @@ import Menu from './componentsJS/Menu';
 import PartOne from './componentsJS/PartOne';
 import PartTwo from './componentsJS/PartTwo';
 import PartThree from './componentsJS/PartThree';
-import PartTwoSub from './componentsJS/PartTwoSub'
-import VideoPage from './componentsJS/VideoPage '
+import PartTwoSub from './componentsJS/PartTwoSub';
+import VideoPage from './componentsJS/VideoPage ';
+import GameIntro from './componentsJS/GameIntro';
+import GameExplaine from './componentsJS/GameExplaine';
+import Game from './componentsJS/Game'
 function App() {
 
 
@@ -26,6 +29,10 @@ function App() {
         <Route path="/subChosing" element={<PartTwoSub />} />
         <Route path="/video-page" element={<VideoPage />} />
         <Route path="/part-three" element={<PartThree />} />
+        <Route path="/game-intro" element={<GameIntro />} />
+        <Route path="/game-explain" element={<GameExplaine />} />
+        <Route path="/game" element={<Game/>} />
+
 
         </Routes>
     </div>

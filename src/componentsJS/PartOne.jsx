@@ -21,7 +21,7 @@ const PartOne = () => {
         <h1 className='PartOne-title'>רקע: רבדי החברה הישראלית,<br />מאפיינים והשפעות</h1>
 
         <div className="audio-container">
-          <AudioPlayer src={audioSrc} className="Audio-player" onEnded={handleAudioEnded} />
+          <AudioPlayer src={audioSrc} className="Audio-player" onEnded={handleAudioEnded} isDarkMode={false}  />
         </div>
 
         <p className='PartOne-explaining'>

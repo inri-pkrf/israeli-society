@@ -60,6 +60,24 @@
     direction: ltr;
   }
   
+.time-current.dark {
+  color: #eee; /* בהיר יותר במצב כהה */
+  font-weight: bold;
+}
+
+.time-current.light {
+  color: #4e4e4e; /* כהה במצב בהיר */
+  font-weight: bold;
+}
+
+.time-duration.dark {
+  color: #ffffff; /* גוון ביניים במצב כהה */
+}
+
+.time-duration.light {
+  color: #ffffff; /* גוון ביניים בהיר יותר במצב בהיר */
+}
+  
   /* רספונסיביות למובייל */
   @media (max-width: 480px) {
     .voiceeffect-rectangle {

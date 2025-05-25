@@ -19,6 +19,11 @@ const VideoPage = () => {
     setShowQuestions(true);
   };
 
+  const goToPartThree =()=>{
+      navigate("/subChosing")
+    
+  }
+
   return (
     <div id="videoPage">
       <img className="cactus-img" src={companyData.imgSrc} alt={`${prompt} logo`} />
@@ -35,10 +40,14 @@ const VideoPage = () => {
           onNextStep={handleNextStep}
         />
       ) : (
-        <Questions questions={companyData.questions} />
+        <div>
+          <p className='Q-explain'>בנקודה זו נשאל כמה שאלות כדי לוודא הבנה. זה יעזור לך להבין שזכרת את הדברים החשובים ולנו להבין שיצא סרטון מוצלח :)
+          </p>
+        <Questions questions={companyData.questions} startPartThree={goToPartThree} />
+        </div>
       )}
 
-      <div className="footer"></div>
+      <div className="footer-vid"></div>
     </div>
   );
 };

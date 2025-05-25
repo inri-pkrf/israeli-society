@@ -27,7 +27,7 @@ const PartTwoSub = () => {
   const allPressed = Object.values(pressedButtons).every(Boolean);
 
   const goToNextStep = () => {
-    navigate('/next-step');
+    navigate('/part-three');
   };
 
   return (
@@ -72,7 +72,7 @@ const PartTwoSub = () => {
         <div className="button-with-text">
           <button
             className={`half-circle-button ${pressedButtons.old ? 'pressed' : ''}`}
-            onClick={() => handlePress('old', 'הגיל השלישי ועם מוגבלויות')}
+            onClick={() => handlePress('old', 'מוגבלויות והגיל השלישי')}
           >
             <img
               src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusOld.png`}
@@ -81,7 +81,7 @@ const PartTwoSub = () => {
             />
           </button>
           <span className={`button-label ${pressedButtons.old ? 'label-pressed' : ''}`}>
-            הגיל השלישי ועם מוגבלויות
+          מוגבלויות והגיל השלישי
           </span>
         </div>
       </div>

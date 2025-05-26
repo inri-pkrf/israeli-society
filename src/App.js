@@ -14,6 +14,8 @@ import GameIntro from './componentsJS/GameIntro';
 import GameExplaine from './componentsJS/GameExplaine';
 import Game from './componentsJS/Game'
 import SummaryPoints from './componentsJS/SummaryPoints'
+import FinalScreen from './componentsJS/FinalScreen'
+import Quiz from './componentsJS/Quiz'
 function App() {
 
 
@@ -34,6 +36,8 @@ function App() {
         <Route path="/game-explain" element={<GameExplaine />} />
         <Route path="/game" element={<Game/>} />
         <Route path="/summary-points" element={<SummaryPoints/>} />
+        <Route path="/final-screen" element={<FinalScreen/>} />
+        <Route path="/test" element={<Quiz/>} />
 
 
         </Routes>

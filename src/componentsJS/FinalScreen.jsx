@@ -21,7 +21,7 @@ function FinalScreen() {
 
   return (
     <div id="final-screen">
-      <p className="blue-text-final">כל הכבוד על האיתנות! הגעת לסיום הלומדה
+      <p className="blue-text-final">כל הכבוד !<br/> הגעת לסיום הלומדה
      </p>
       <p className="grey-big-final">שנעבור לבדוק מה הצלחת לזכור?</p>
       

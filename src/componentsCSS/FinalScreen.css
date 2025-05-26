@@ -1,0 +1,87 @@
+
+#final-screen {
+  position: fixed;
+  top: 0vh;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background-image: url("/public/assets/imgs/Bg2.jpg");
+  overflow-y: scroll;
+  overflow-x: hidden;
+  direction: rtl;
+  }
+
+  .blue-text-final {
+    position: absolute;
+    font-size: 3em;
+    width: 90vw;
+    margin-top: -56vh;
+    direction: rtl;
+    text-align: center;
+    font-family: "Karantina";
+    color: rgb(255, 255, 255);
+ 
+    }
+
+    .grey-big-final{
+      position: absolute;
+      font-size: 1.2em;
+      direction: rtl;
+      text-align: center;
+      font-family: "Heebo";
+      color: rgb(255, 255, 255);
+      font-weight: 900;
+      max-width: 90vw;
+      padding-left: 5vw;
+      margin-top: -32vh;
+      padding-right: 5vw;
+        }
+
+
+        .button-final{
+            border: none;
+            border-radius: 50px;
+            width: 69vw;
+            height: 8vh;
+            position: absolute;
+            font-size: 1.3em;
+            font-family: "Heebo" ,Arial;
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            padding: 1.5vw;
+            right: 50%;
+            transform: translateX(50%);
+            margin-top: 3vh;
+            background-color:rgb(28, 180, 227);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); 
+        
+        }
+
+        .bottom{
+            position: absolute;
+            margin-top: 15vh;
+
+        }
+        .input-label {
+            display: block;
+            margin-bottom: 10px; /* רווח בין ה-label ל-input */
+          }
+          
+          .input-field {
+            border-radius: 50px;
+            height: 5vh;
+            width: 60%; /* ניתן לקבוע רוחב מותאם */
+            margin: 0 auto; /* ממורכז */
+            display: block; /* כדי שה-input יהיה בשורה חדשה תחת ה-label */
+            padding: 0 10px; /* ריפוד פנימי */
+            text-align: center;
+            font-family: "Heebo" ,Arial;
+            font-size: 1.2em;
+          }
+          

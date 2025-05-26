@@ -1,0 +1,214 @@
+/* קונטיינר ראשי */
+#quiz {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  direction: rtl;
+}
+
+/* כותרת של השאלה */
+.question-number-q {
+  font-size: 4em;
+  font-family: "karantina";
+  color: rgb(86, 195, 232);
+  margin-top: 10vh;
+}
+
+/* שאלה */
+.question-q {
+  margin-top: 3vh;
+  direction: rtl;
+  font-size: 1.2em;
+  color: rgb(89, 89, 89);
+  font-family: "Heebo";
+  text-align: center;
+  padding: 0 5vw;
+}
+.progress-bar-container-q {
+  direction: rtl;
+  position: relative;
+  width: 90%;
+  height: 10px;
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 40px;
+  margin-top: 10px;
+}
+
+.progress-bar-q {
+  height: 100%;
+  background-color: #1bbfe5;
+  transition: width 0.1s linear;
+}
+
+
+
+/* תשובות */
+.answers-q {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 90%;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.answer-button-q {
+  padding: 10px;
+  font-size: 1.2em;
+  text-align: center;
+  font-family: "Heebo";
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  width: 100%;
+  max-width: 500px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  background-color: #f8f8f8;
+}
+
+.answer-button-q.selected {
+  background-color: #2858ab;
+  color: white;
+}
+
+/* כפתורי ניווט */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 500px;
+  margin: 2em auto;
+}
+
+.prev-button,
+.next-button,
+.button-disabled {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: "Heebo";
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+}
+
+.prev-button {
+  background-color: rgb(28, 180, 227);
+}
+
+.next-button {
+  background-color: #2858ab;
+}
+
+.button-disabled {
+  background-color: rgb(102, 102, 102);
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* תוצאות */
+.results {
+  font-size: 1.2em;
+  font-family: "Heebo";
+  direction: rtl;
+  margin: 2em auto;
+  width: 90%;
+  text-align: center;
+}
+
+/* ניקוד */
+.score {
+  font-family: "Karantina";
+  font-size: 3em;
+  color: rgb(89, 89, 89);
+}
+
+/* הודעה */
+.message {
+  font-family: "Heebo";
+  font-size: 1.2em;
+  width: 90%;
+  margin: 1em auto;
+  text-align: center;
+}
+
+/* שם משתמש */
+.user-name {
+  font-family: "Heebo", Arial;
+  font-size: 1.5em;
+  margin-top: 23vh;
+  width: 90%;
+  text-align: center;
+}
+
+/* כפתור שיתוף */
+.share-btn {
+  background-color: rgb(33, 173, 216);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: "Heebo";
+  width: 80%;
+  margin: 1.5em auto;
+  cursor: pointer;
+  display: block;
+}
+
+/* כפתור נסה שוב */
+.try-button {
+  background-color:  #2858ab;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: "Heebo", Arial;
+  width: 50%;
+  margin: 1em auto;
+  cursor: pointer;
+  display: block;
+}
+
+/* כפתור אפס הכל */
+.reset-btn {
+  background-color:  #2858ab;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: "Heebo", Arial;
+  width: 80%;
+  margin: 2em auto;
+  cursor: pointer;
+  display: block;
+}
+
+/* כפתור סיום */
+.end-btn {
+  background-color: rgb(33, 173, 216);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-family: "Heebo";
+  width: 70%;
+  margin: 2em auto;
+  cursor: pointer;
+  display: block;
+}

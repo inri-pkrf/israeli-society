@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import summaryData from '../data/summaryData';
 import '../componentsCSS/SummaryCards.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const SummaryCards = ({ onExitToSummary }) => {
-   
+    const navigate = useNavigate();
+
 
   const cardKeys = Object.keys(summaryData);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,8 +14,11 @@ const SummaryCards = ({ onExitToSummary }) => {
   const handleNext = () => {
     if (currentIndex < cardKeys.length - 1) {
       setCurrentIndex(currentIndex + 1);
+    } else {
+      navigate('/final-screen'); // ניתוב למסך הסיום
     }
   };
+  
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -51,7 +57,7 @@ const SummaryCards = ({ onExitToSummary }) => {
 
       <div className="card-arrows">
   <button className="backward" onClick={handlePrev} ></button>
-  <button className="forward" onClick={handleNext} disabled={currentIndex === cardKeys.length - 1}></button>
+  <button className="forward" onClick={handleNext} ></button>
 </div>
 
     </div>

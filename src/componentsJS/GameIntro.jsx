@@ -32,7 +32,7 @@ const GameIntro = () => {
 </p>
         )}
         {showButton && (
-          <button className="next-button-game" onClick={() => navigate('/game-explain')}>
+          <button className="next-button-game-intro" onClick={() => navigate('/game-explain')}>
             המשך לחלק הבא
           </button>
         )}

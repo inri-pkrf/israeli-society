@@ -24,7 +24,7 @@ const GameExplaine = () => {
  
 אל דאגה, סידרנו סיבוב ניסיון לחימום לפני שמתחילים.
       </p>
-      <button className="next-button-game" onClick={() => navigate('/game')}>
+      <button className="next-button-game-ex" onClick={() => navigate('/game')}>
            יאללה למשחק
           </button>
    

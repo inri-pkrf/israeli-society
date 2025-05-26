@@ -1,5 +1,5 @@
  .Gamepage-container {
-position: fixed;
+position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -16,7 +16,7 @@ position: fixed;
 
 .Game-title{
     font-family: "karantina";
-    font-size: 3em;
+    font-size: 3.5em;
     font-weight: 400;
     position: absolute;
     right: 50%;
@@ -31,74 +31,109 @@ position: fixed;
 .info-game{
     font-family: "Heebo";
     font-size: 1.3em;
-    position: absolute;
+    position: fixed;
     right: 50%;
     transform: translateX(50%);
     width: 90vw;
-    margin-top: 30vh;
+    margin-top: 22vh;
     text-align: center;
 
 }
 
-.statement-list {
-    position: relative;
-    right: 50%;
-    transform: translateX(75%);
-    margin-top: 40vh;
-    width: 80vw;
-    text-align: center;
+  .correct-txt{
+    font-family: "Heebo";
+    transform: rotate(-26deg);
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: 300;
   }
   
-  .statement-box {
-    background-color: #66c0f4;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 10px 0;
-    color: white;
-    font-weight: bold;
-    cursor: grab;
-    user-select: none;
-  }
+  .wrong-txt{
+    font-family: "Heebo";
+    transform: rotate(24deg);
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 300;
+}
   
-  .dropzones {
-    display: flex;
-    justify-content: space-around;
+.game-orders{
     position: fixed;
-    bottom: 20px;
-    width: 100%;
-    padding: 10px 0;
-  }
-  
-  .dropzone {
-    width: 120px;
-    height: 160px;
+    font-family: "Heebo";
+    text-align: center;
+    direction: rtl;
+    width: 90vw;
+    right: 50%;
+    transform: translateX(50%);
+    color: rgb(105, 105, 105);
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.feedback {
+    position: fixed;
+    margin-top: -26vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(27, 27, 27, 0.85);
+    color: white;
+    padding: 12px 20px;
     border-radius: 24px;
-    background-color: #a0d9f500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-  }
-  .dropzone.correct {
-    margin-left: auto;
-  }
-  
-  .dropzone img {
-    max-width: 80px;
-    margin-bottom: 10px;
-  }
-  
-  .score {
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  .game-order{
-    font-family: "Heebo";
-    direction: rtl;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 2rem;
+    max-width: 79vw;
+    z-index: 2000;
+    height: 61vh;
+    user-select: none;
     text-align: center;
-    font-size: 1.2em;
-    color:rgb(51, 51, 51);
-    font-weight: bold;
+  }
+  
+  .feedback span {
+    direction: rtl;
+    font-family: "Heebo";
+    width: 100%;
+    /* text-align: center; כבר יש בהורה */
+  }
+  
+  /* ניתן להוריד את margin-top השלילי כי לא צריך אותו עם עיצוב זה */
+  .close-feedback {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 5rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+  }
+  .score{
+    position: fixed;
+    text-align:center;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Karantina";
+    font-size: 2.5em;
+    direction: rtl;
+    margin-top: -14vh;
+    color: #515151;
+  }
+  .game-over-message{
+    margin-top: 12vh;
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(0 34 123);
+    padding: 20px;
+    border-radius: 12px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    direction: rtl;
+    font-family: "Karantina";
+    user-select: none;
   }

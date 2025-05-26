@@ -87,7 +87,7 @@ const PartTwoSub = () => {
       </div>
 
       <button
-        className="next-step-button"
+        className="next-step-button-21"
         onClick={goToNextStep}
         disabled={!allPressed}
       >

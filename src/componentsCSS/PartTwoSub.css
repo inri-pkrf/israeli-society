@@ -94,7 +94,7 @@
     color: rgb(53, 184, 141);
     font-weight: bold;
   }
-  .next-step-button {
+  .next-step-button-21 {
     margin-top: 30px;
     padding: 10px 25px;
     font-size: 1.5em;
@@ -104,11 +104,21 @@
     border: none;
     font-family: "Heebo";
     cursor: pointer;
-    width:60vw;
+    width:50vw;
   }
   
-  .next-step-button:disabled {
-    background-color: #cccccc;
+  .next-step-button-21  {
+    margin-top: 30px;
+    padding: 10px 25px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    background-color: rgb(53, 184, 141);
+    color: white;
+    border: none;
+    font-family: "Heebo";
+    opacity: 0.6;
     cursor: not-allowed;
+    width:50vw;
+   
   }
   

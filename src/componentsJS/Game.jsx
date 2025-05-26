@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import game from '../data/game';
 import { useNavigate } from 'react-router-dom';
-import '../componentsCSS/GameExplaine.css';
+import '../componentsCSS/Game.css';
 
 const Game = () => {
   const navigate = useNavigate();
@@ -11,11 +11,15 @@ const Game = () => {
 
   const [dragging, setDragging] = useState(false);
   const [dragPos, setDragPos] = useState({ x: 0, y: 0 });
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+
+  const [feedback, setFeedback] = useState(''); // חדש - הודעות פידבק
+  const [gameOver, setGameOver] = useState(false); // חדש - האם המשחק נגמר?
+
   const dragItemRef = useRef(null);
   const correctRef = useRef(null);
   const incorrectRef = useRef(null);
 
-  // פונקציה לבדיקת נקודה בתוך אזור dropzone
   const isInside = (x, y, el) => {
     if (!el) return false;
     const rect = el.getBoundingClientRect();
@@ -28,24 +32,31 @@ const Game = () => {
 
     if (statement.correct === isCorrectDrop) {
       setScore(prev => prev + 1);
-      alert('נכון! ניקוד עולה.');
+      setFeedback('נכון! ניקוד עולה.');
     } else {
-      alert('לא נכון, נסה שוב.');
+      setFeedback('לא נכון, נסו שוב.');
     }
 
+    // בדיקה אם זהו הפריט האחרון
     if (currentIndex < statements.length - 1) {
       setCurrentIndex(prev => prev + 1);
     } else {
-      alert(`המשחק נגמר! ניקוד סופי: ${score + (statement.correct === isCorrectDrop ? 1 : 0)} / ${statements.length}`);
+      // סיום המשחק
+      setGameOver(true);
     }
 
     setDragging(false);
     setDragPos({ x: 0, y: 0 });
+    setOffset({ x: 0, y: 0 });
   };
 
-  // טיפול ב-touch
   const onTouchStart = (e) => {
     const touch = e.touches[0];
+    const rect = dragItemRef.current.getBoundingClientRect();
+    setOffset({
+      x: touch.clientX - rect.left,
+      y: touch.clientY - rect.top,
+    });
     setDragging(true);
     setDragPos({ x: touch.clientX, y: touch.clientY });
   };
@@ -65,76 +76,160 @@ const Game = () => {
     } else {
       setDragging(false);
       setDragPos({ x: 0, y: 0 });
+      setOffset({ x: 0, y: 0 });
     }
   };
 
   return (
     <div className="Gamepage-container">
       <h1 className='Game-title'>משחק קווים משיקים</h1>
-      <p className="info-game">יש לגרור את האמרה לצבר המתאים</p>
-
-      <div className="statement-list">
-        {statements[currentIndex] && (
+      {!gameOver ? (
+        <>
+        <p className="info-game">יש לגרור את האמרה לצבר המתאים</p>
           <div
-            ref={dragItemRef}
-            className="statement-box"
-            draggable={!dragging}
-            onDragStart={(e) => e.dataTransfer.setData('text/plain', 'dragged')}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
+            className="statement-list"
             style={{
-              position: dragging ? 'fixed' : undefined,
-              left: dragging ? dragPos.x - 50 : undefined,
-              top: dragging ? dragPos.y - 20 : undefined,
-              zIndex: dragging ? 1000 : undefined,
-              touchAction: 'none',
-              backgroundColor: '#66c0f4',
-              borderRadius: '12px',
-              padding: '20px',
-              margin: '10px 0',
-              color: 'white',
-              fontWeight: 'bold',
-              cursor: 'grab',
-              userSelect: 'none',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginTop: '28vh',
+              width: '100vw',
+              minHeight: '120px',
+              direction: 'rtl',
             }}
           >
-            {statements[currentIndex].text}
+            {statements[currentIndex] && (
+              <>
+                <div
+                  style={{
+                    visibility: dragging ? 'hidden' : 'visible',
+                    height: '80px',
+                    width: '40vw',
+                  }}
+                >
+                  {/* שמור מקום לתיבה בזמן גרירה */}
+                </div>
+
+                <div
+                  ref={dragItemRef}
+                  className="statement-box"
+                  draggable={!dragging}
+                  onDragStart={(e) => e.dataTransfer.setData('text/plain', 'dragged')}
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={onTouchEnd}
+                  style={{
+                    position: dragging ? 'fixed' : 'relative',
+                    left: dragging ? dragPos.x - offset.x : '50%',
+                    top: dragging ? dragPos.y - offset.y : 'auto',
+                    transform: dragging ? 'none' : 'translateX(-50%)',
+                    zIndex: dragging ? 1000 : 1,
+                    touchAction: 'none',
+                    backgroundColor: '#66c0f4',
+                    borderRadius: '12px',
+                    padding: '20px',
+                    color: 'white',
+                    cursor: 'grab',
+                    width: '60vw',
+                    direction: 'rtl',
+                    userSelect: 'none',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    fontSize:'1.4em',
+                    fontFamily:'Heebo'
+                  }}
+                >
+                  {statements[currentIndex].text}
+                </div>
+              </>
+            )}
           </div>
-        )}
-      </div>
 
-      <div className="dropzones">
+          <p className='game-orders'>
+            האם המאפיין משותף בין החברה הערבית לחרדית?
+          </p>
+
+          {/* אזור הפידבק */}
+          {feedback && (
+  <div className="feedback">
+    <span>{feedback}</span>
+    <button onClick={() => setFeedback('')} className="close-feedback" aria-label="סגור הודעה">×</button>
+  </div>
+)}
+
+          <div
+            className="dropzones"
+            style={{ display: 'flex', justifyContent: 'space-between', marginTop: '13vh', gap: '15vw' }}
+          >
+            <div
+              ref={incorrectRef}
+              className="dropzone incorrect"
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                handleDrop(false);
+              }}
+              style={{
+                width: '45%',
+                padding: '5vw',
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: '#DA6C6C',
+                direction: 'rtl',
+              }}
+            >
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/imgs/catuseWrong.png`}
+                alt="ממש לא"
+                style={{ maxWidth: '100px', marginBottom: '10px' }}
+              />
+              <p className='wrong-txt'>ממש לא</p>
+            </div>
+
+            <div
+              ref={correctRef}
+              className="dropzone correct"
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                handleDrop(true);
+              }}
+              style={{
+                width: '45%',
+                padding: '5vw',
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: '#03A791',
+                direction: 'rtl',
+              }}
+            >
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/imgs/cactuseCorrect.png`}
+                alt="ברור שכן!"
+                style={{ maxWidth: '100px', marginBottom: '10px' }}
+              />
+              <p className='correct-txt'>ברור שכן!</p>
+            </div>
+          </div>
+
+          <div className="score">
+            ניקוד:<br/>{statements.length} / {score}
+          </div>
+        </>
+      ) : (
+        // סיום המשחק - מציג הודעת סיום בלבד
         <div
-          ref={incorrectRef}
-          className="dropzone incorrect"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => {
-            e.preventDefault();
-            handleDrop(false);
-          }}
+          className="game-over-message"
+          
         >
-          <img src={`${process.env.PUBLIC_URL}/assets/imgs/catuseWrong.png`} alt="ממש לא" />
-          <p>ממש לא</p>
+          <p>כל הכבוד!</p>
+          <p>הצלחת לזהות</p>
+          <p>{score} / {statements.length} מאפיינים מקבילים בין החברה החרדית לערבית</p>
+          <p>בשבילנו את/ה צבר אמיתי!</p>
         </div>
-
-        <div
-          ref={correctRef}
-          className="dropzone correct"
-          onDragOver={(e) => e.preventDefault()}
-          onDrop={(e) => {
-            e.preventDefault();
-            handleDrop(true);
-          }}
-        >
-          <img src={`${process.env.PUBLIC_URL}/assets/imgs/cactuseCorrect.png`} alt="ברור שכיו!" />
-          <p>ברור שכיו!</p>
-        </div>
-      </div>
-
-      <div className="score">
-        ניקוד: {score} / {statements.length}
-      </div>
+      )}
 
       <div className="footer"></div>
     </div>

@@ -29,13 +29,13 @@ const PartOne = () => {
         </p>
 
         {showButton && (
-          <button className="next-button" onClick={() => navigate('/part-two')}>
+          <button className="next-button-one" onClick={() => navigate('/part-two')}>
             המשך לחלק הבא
           </button>
         )}
       </div>
 
-      <div className="footer"></div>
+      <div className="footer-1"></div>
     </div>
   );
 };

@@ -34,8 +34,9 @@ const Game = () => {
       setScore(prev => prev + 1);
       setFeedback('נכון! ניקוד עולה.');
     } else {
-      setFeedback('לא נכון, נסו שוב.');
+      setFeedback(`לא נכון.<br/>${statement.explanation}`);
     }
+    
 
     // בדיקה אם זהו הפריט האחרון
     if (currentIndex < statements.length - 1) {
@@ -154,8 +155,8 @@ const Game = () => {
           {/* אזור הפידבק */}
           {feedback && (
   <div className="feedback">
-    <span>{feedback}</span>
-    <button onClick={() => setFeedback('')} className="close-feedback" aria-label="סגור הודעה">×</button>
+  <span dangerouslySetInnerHTML={{ __html: feedback }} />
+  <button onClick={() => setFeedback('')} className="close-feedback" aria-label="סגור הודעה">×</button>
   </div>
 )}
 
@@ -220,15 +221,37 @@ const Game = () => {
         </>
       ) : (
         // סיום המשחק - מציג הודעת סיום בלבד
-        <div
-          className="game-over-message"
-          
-        >
-          <p>כל הכבוד!</p>
-          <p>הצלחת לזהות</p>
-          <p>{score} / {statements.length} מאפיינים מקבילים בין החברה החרדית לערבית</p>
-          <p>בשבילנו את/ה צבר אמיתי!</p>
-        </div>
+        <div className="game-over-message">
+  <p className="game-over-txt1">כל הכבוד!</p>
+  <p className="game-over-txt2">
+    הצלחת לזהות<br />
+    {score} / {statements.length} מאפיינים מקבילים בין החברה החרדית לערבית<br />
+    בשבילנו את/ה צבר אמיתי!
+  </p>
+
+  {/* קונטיינר לתמונות בשורה */}
+  <div className="end-images-row">
+    <img
+      src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusOld.png`}
+      alt="כפתור 3"
+      className="end-img"
+    />
+    <img
+      src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusDos.png`}
+      alt="כפתור 3"
+      className="end-img"
+    />
+    <img
+      src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusArab.png`}
+      alt="כפתור 3"
+      className="end-img"
+    />
+  </div>
+  <button className="next-button-game" onClick={() => navigate('/summary-points')}>
+           מעבר לנושא הבא
+          </button>
+</div>
+
       )}
 
       <div className="footer"></div>

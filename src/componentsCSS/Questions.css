@@ -11,13 +11,14 @@
   
   .questions-card {
     position: absolute;
-    margin-top: 10vh;
+    margin-top: 15vh;
     right: 50%;
     transform: translateX(50%);
     width: 90vw;
     height: 48vh;
     border-radius: 30px;
     background-color: #d3d3d3;
+    z-index: 1000;
   }
   
 
@@ -62,16 +63,17 @@
     font-size: 16px;
     cursor: pointer;
   }
-  .feedback {
+  .feedback-Q {
     margin-top: 10px;
+    font-size: 1.2em;
     font-weight: bold;
   }
   
-  .feedback.correct {
+  .feedback-Q.correct {
     color: #4caf50; /* ירוק */
   }
   
-  .feedback.wrong {
+  .feedback-Q.wrong {
     color: #f44336; /* אדום */
   }
   .next-step-button-Q {

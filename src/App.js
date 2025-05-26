@@ -13,6 +13,7 @@ import VideoPage from './componentsJS/VideoPage ';
 import GameIntro from './componentsJS/GameIntro';
 import GameExplaine from './componentsJS/GameExplaine';
 import Game from './componentsJS/Game'
+import SummaryPoints from './componentsJS/SummaryPoints'
 function App() {
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/game-intro" element={<GameIntro />} />
         <Route path="/game-explain" element={<GameExplaine />} />
         <Route path="/game" element={<Game/>} />
+        <Route path="/summary-points" element={<SummaryPoints/>} />
 
 
         </Routes>

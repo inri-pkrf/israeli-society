@@ -107,7 +107,7 @@
     width:50vw;
   }
   
-  .next-step-button-21  {
+  .next-step-button-21:disabled{
     margin-top: 30px;
     padding: 10px 25px;
     font-size: 1.5em;

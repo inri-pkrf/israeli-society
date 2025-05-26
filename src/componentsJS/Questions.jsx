@@ -93,13 +93,13 @@ const Questions = ({ questions ,startPartThree}) => {
         </div>
         {/* Feedback message */}
         {feedback === 'correct' && (
-          <p className="feedback correct">תשובה נכונה!</p>
+          <p className="feedback-Q correct">תשובה נכונה!</p>
         )}
         {feedback === 'wrong' && (
-          <p className="feedback wrong">תשובה שגויה. נסו שוב.</p>
+          <p className="feedback-Q wrong">תשובה שגויה. נסו שוב.</p>
         )}
         {feedback === 'showAnswer' && (
-          <p className="feedback wrong">
+          <p className="feedback-Q wrong">
             לא נורא, התשובה הנכונה היא: {currentQuestion.correctAns}
           </p>
         )}

@@ -100,19 +100,22 @@
     transform: translateX(50%);
     right: 50%;
 }
-
-.mashov-menu{
+.mashov-menu {
+    position: fixed;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'Heebo', sans-serif;
     font-size: 4vw;
     color: white;
     text-align: center;
-    position: absolute;
-    margin-top: 0vh;
-    right: 50%;
-    transform: translateX(50%);
     width: 67vw;
-}
-
+    padding: 1rem;
+    z-index: 1002;
+    background: rgba(0,0,0,0.3); /* אפשר להוסיף רקע חצי שקוף כדי לראות יותר טוב */
+  }
+  
+  
 .mashovTextMenu{
     margin-top: 74vh;
     font-family: "Heebo";

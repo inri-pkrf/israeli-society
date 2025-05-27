@@ -16,9 +16,12 @@ import Game from './componentsJS/Game'
 import SummaryPoints from './componentsJS/SummaryPoints'
 import FinalScreen from './componentsJS/FinalScreen'
 import Quiz from './componentsJS/Quiz'
+
+
+
+
+
 function App() {
-
-
   return (
     <div className="App">
       <Header className="header-fixed" />

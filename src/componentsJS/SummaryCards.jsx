@@ -29,12 +29,17 @@ const SummaryCards = ({ onExitToSummary }) => {
       }
     }
   };
+  const GoBack = () => {
+    if (onExitToSummary) {
+      onExitToSummary(); // חוזר למסך ההסבר
+    }
+  };
   
-
   const currentCard = summaryData[cardKeys[currentIndex]];
 
   return (
     <div className="summary-card" style={{ backgroundColor: currentCard.color }}>
+      <p className='closeCard' onClick={ GoBack}>X</p>
         <h1 className="point-num">{currentIndex + 1}</h1>
       <h2 className="card-title">המנהיגות המקומית היא המפתח</h2>
 

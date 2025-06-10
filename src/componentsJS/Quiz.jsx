@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect  } from 'react';
 import '../componentsCSS/Quiz.css';
 import { useLocation } from 'react-router-dom'; 
 import quizData from '../data/quizData'; // נתיב לפי מיקום הקובץ שלך
@@ -19,11 +19,19 @@ import html2canvas from 'html2canvas';
     const currentQuestion = quizData[currentIndex];
     const progressWidth = `${((currentIndex + 1) / quizData.length) * 100}%`;
   
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    useEffect(() => {
+      scrollToTop();
+    }, [currentIndex, isSubmitted]);
+    
     const handleAnswerSelect = (answer) => {
       const newAnswers = [...selectedAnswers];
       newAnswers[currentIndex] = answer;
       setSelectedAnswers(newAnswers);
-  
+
+
       const newScore = newAnswers.reduce((acc, ans, i) => {
         return acc + (ans === quizData[i].correctAnswer ? 10 : 0);
       }, 0);
@@ -34,6 +42,12 @@ import html2canvas from 'html2canvas';
     const nextQuestion = () => {
       if (currentIndex < quizData.length - 1) {
         setCurrentIndex(currentIndex + 1);
+
+      }
+      else {
+        setIsSubmitted(true);
+
+
       }
     };
   
@@ -115,17 +129,23 @@ import html2canvas from 'html2canvas';
                 שאלה קודמת
               </button>
               <button
-                className={`${selectedAnswers[currentIndex] === undefined || currentIndex === quizData.length - 1 ? 'button-disabled' : 'next-button'}`}
-                onClick={nextQuestion}
-                disabled={selectedAnswers[currentIndex] === undefined || currentIndex === quizData.length - 1}
-              >
-                שאלה הבאה
-              </button>
+              className={`${
+                selectedAnswers[currentIndex] === undefined
+                  ? 'button-disabled'
+                  : 'next-button'
+              }`}
+              onClick={
+                currentIndex === quizData.length - 1
+                  ? finishQuiz
+                  : nextQuestion
+              }
+              disabled={selectedAnswers[currentIndex] === undefined}
+            >
+              {currentIndex === quizData.length - 1 ? 'סיים את המשחק' : 'שאלה הבאה'}
+            </button>
+
             </div>
   
-            {currentIndex === quizData.length - 1 && selectedAnswers[currentIndex] !== undefined && (
-              <button className='end-btn' onClick={finishQuiz}>סיים את המשחק</button>
-            )}
           </div>
         ) : (
           <div className="results">

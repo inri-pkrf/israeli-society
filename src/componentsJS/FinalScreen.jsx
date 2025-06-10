@@ -25,7 +25,7 @@ function FinalScreen() {
      </p>
       <p className="grey-big-final">שנעבור לבדוק מה הצלחת לזכור?</p>
       
-      <form onSubmit={handleSubmit}>
+      <form  className="form" onSubmit={handleSubmit}>
         <div className="input-container">
           <label htmlFor="first-name" className="input-label">שם פרטי:</label>
           <input

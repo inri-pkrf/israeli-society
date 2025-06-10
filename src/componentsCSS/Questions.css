@@ -8,20 +8,22 @@
     background-repeat: no-repeat;
     direction: rtl;
   }
-  
   .questions-card {
-    position: absolute;
-    margin-top: 15vh;
+    position: relative; /* חשוב */
+    margin-top: 6vh;
     right: 50%;
     transform: translateX(50%);
     width: 90vw;
-    height: 48vh;
+    padding: 20px 10px;
     border-radius: 30px;
     background-color: #d3d3d3;
     z-index: 1000;
+    box-sizing: border-box;
+    min-height: 30vh;
+  
+    scroll-margin-top: 10vh; /* חשוב לגלילה חלקה */
   }
   
-
 
 
 .questions {
@@ -31,7 +33,19 @@
     font-family: "Heebo";
     
   }
-  
+  .Question-t{
+    font-family: "Heebo";
+    font-size: 1.4em;
+    width: 74vw;
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+    font-weight: 200;
+    color: #282886;
+
+
+  }
   .answers {
     display: flex;
         flex-direction: column;
@@ -42,10 +56,10 @@
   
   .answer-button {
     padding: 10px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     background-color: transparent;
-    width:80vw;
-    height: 8vh;
+    width: 87vw;
+    height: 11vh;
     border-radius: 30px;
     font-family: "Heebo";
     position: relative;

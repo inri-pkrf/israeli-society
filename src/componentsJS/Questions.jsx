@@ -1,27 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../componentsCSS/Questions.css';
 
-const Questions = ({ questions ,startPartThree}) => {
+const Questions = ({ questions, startPartThree, scrollContainerRef }) => {
+  const [randomQuestions, setRandomQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [completed, setCompleted] = useState(false);
   const [attempts, setAttempts] = useState(0);
   const [feedback, setFeedback] = useState(null); // 'correct', 'wrong', or 'showAnswer'
 
-  const currentQuestion = questions[currentIndex];
-  const goToPartThree=()=>{
+  useEffect(() => {
+    // Shuffle and select 3 random questions
+    const shuffled = [...questions].sort(() => 0.5 - Math.random());
+    setRandomQuestions(shuffled.slice(0, 3));
+  }, [questions]);
+
+    useEffect(() => {
+    if (completed && scrollContainerRef?.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [completed, scrollContainerRef]);
+
+  const currentQuestion = randomQuestions[currentIndex];
+
+  const goToPartThree = () => {
     startPartThree();
-  }
+  };
 
   const handleAnswerClick = (answer) => {
-    if (selectedAnswer) return; // Prevent multiple selections
+    if (selectedAnswer) return;
 
     setSelectedAnswer(answer);
 
     if (answer === currentQuestion.correctAns) {
       setFeedback('correct');
       setTimeout(() => {
-        if (currentIndex + 1 < questions.length) {
+        if (currentIndex + 1 < randomQuestions.length) {
           setCurrentIndex(currentIndex + 1);
           setSelectedAnswer('');
           setFeedback(null);
@@ -36,7 +50,7 @@ const Questions = ({ questions ,startPartThree}) => {
       if (newAttempts >= 2) {
         setFeedback('showAnswer');
         setTimeout(() => {
-          if (currentIndex + 1 < questions.length) {
+          if (currentIndex + 1 < randomQuestions.length) {
             setCurrentIndex(currentIndex + 1);
             setSelectedAnswer('');
             setFeedback(null);
@@ -55,12 +69,13 @@ const Questions = ({ questions ,startPartThree}) => {
     }
   };
 
+  if (randomQuestions.length === 0) return null; // Wait until questions are ready
+
   if (completed) {
     return (
       <div className="questions">
         <h2 className='excelent'>כל הכבוד! סיימת את השאלון.</h2>
-        <button className="next-step-button-Q"  onClick={goToPartThree}>מעבר לנושא הבא
-        </button>
+        <button className="next-step-button-Q" onClick={goToPartThree}>מעבר לנושא הבא</button>
       </div>
     );
   }
@@ -68,7 +83,7 @@ const Questions = ({ questions ,startPartThree}) => {
   return (
     <div className="questions">
       <div className="questions-card">
-        <h2>{currentQuestion.question}</h2>
+        <h2 className='Question-t'>{currentQuestion.question}</h2>
         <div className="answers">
           {[currentQuestion.answer1, currentQuestion.answer2, currentQuestion.answer3, currentQuestion.answer4].map((answer, index) => {
             let className = 'answer-button';
@@ -91,17 +106,10 @@ const Questions = ({ questions ,startPartThree}) => {
             );
           })}
         </div>
-        {/* Feedback message */}
-        {feedback === 'correct' && (
-          <p className="feedback-Q correct">תשובה נכונה!</p>
-        )}
-        {feedback === 'wrong' && (
-          <p className="feedback-Q wrong">תשובה שגויה. נסו שוב.</p>
-        )}
+        {feedback === 'correct' && <p className="feedback-Q correct">תשובה נכונה!</p>}
+        {feedback === 'wrong' && <p className="feedback-Q wrong">תשובה שגויה. נסו שוב.</p>}
         {feedback === 'showAnswer' && (
-          <p className="feedback-Q wrong">
-            לא נורא, התשובה הנכונה היא: {currentQuestion.correctAns}
-          </p>
+          <p className="feedback-Q wrong">לא נורא, התשובה הנכונה היא: {currentQuestion.correctAns}</p>
         )}
       </div>
     </div>

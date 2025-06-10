@@ -23,7 +23,8 @@ function Header() {
     : `${process.env.PUBLIC_URL}/assets/imgs/whiteLogo.svg`; // לבן
 
   // אם המסלול הוא /home → NavBar בהיר, אחרת כהה
-  const isDarkMode = location.pathname !== '/home';
+  const isDarkMode = !['/home', '/game', '/test'].includes(location.pathname);
+
 
   return (
     <header className={isSpecialPath ? 'header' : 'header2'}>

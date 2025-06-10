@@ -1,0 +1,121 @@
+@media screen and (min-width: 769px) and (max-width: 1024px)  {
+    
+.nav-links {
+    position: absolute;
+    right: 19vw;
+    margin-top: 5vh;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    direction: rtl;
+    font-family:"Heebo";
+  }
+  
+  .nav-links li {
+    cursor: pointer;
+    font-size: 1.5em;
+    color:rgb(102, 102, 102);
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li:hover {
+    text-decoration: underline;
+  }
+  
+  /* קו מפריד */
+  .divider {
+    color: #999;
+    font-size: 18px;
+  }
+  
+  /* לינק פעיל מודגש */
+  .active-link {
+    font-weight: bold;
+    font-size: 1.6em;
+
+ 
+  }
+}
+
+
+
+@media screen and (min-width: 1025px) {
+  .nav-links {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    direction: rtl;
+    padding: 0;
+    right: 15vw;
+    list-style: none;
+  }
+  
+  .nav-links.light .nav-item {
+    color: #666;
+  }
+  
+  .nav-links.dark .nav-item {
+    color: #fff;
+  }
+  
+  .nav-item {
+    font-family: "Heebo";
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-item:hover {
+    text-decoration: underline;
+  }
+  
+  .nav-item.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  
+  .active-link {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  .divider {
+    color: #aaa;
+    padding: 0 5px;
+  }
+  
+  .dropdown-arrow {
+    width: 12px;
+    margin-right: 5px;
+    transform: rotate(90deg);
+    transition: transform 0.3s;
+  }
+  
+  .dropdown-arrow.open {
+    transform: rotate(270deg);
+  }
+  
+  .sub-nav {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    z-index: 100;
+  }
+  
+  .sub-nav-item {
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .sub-nav-item:hover {
+    background: #eee;
+  }
+  
+}

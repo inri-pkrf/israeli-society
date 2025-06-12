@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/israeli-society/static/css/main.cda7c2c7.css",
+    "main.css": "/israeli-society/static/css/main.af6218fb.css",
     "main.js": "/israeli-society/static/js/main.a9dbfe27.js",
     "static/js/453.6a2e03c8.chunk.js": "/israeli-society/static/js/453.6a2e03c8.chunk.js",
     "static/media/Bg2.png": "/israeli-society/static/media/Bg2.866de4557859667c4d73.png",
@@ -8,12 +8,12 @@
     "static/media/Bg3.jpg": "/israeli-society/static/media/Bg3.1a978dc904a71df35bb9.jpg",
     "static/media/Bg2.jpg": "/israeli-society/static/media/Bg2.de20226800bbbdc0afc9.jpg",
     "index.html": "/israeli-society/index.html",
-    "main.cda7c2c7.css.map": "/israeli-society/static/css/main.cda7c2c7.css.map",
+    "main.af6218fb.css.map": "/israeli-society/static/css/main.af6218fb.css.map",
     "main.a9dbfe27.js.map": "/israeli-society/static/js/main.a9dbfe27.js.map",
     "453.6a2e03c8.chunk.js.map": "/israeli-society/static/js/453.6a2e03c8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cda7c2c7.css",
+    "static/css/main.af6218fb.css",
     "static/js/main.a9dbfe27.js"
   ]
 }

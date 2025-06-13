@@ -156,156 +156,171 @@
 
 
 @media screen and (min-width: 1025px) {
-  .nav-links {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    direction: rtl;
-    padding: 0;
-    right: 25vw;
-    margin-top: 3vh;
-    list-style: none;
-    z-index: 200; /* למקרה שיש צורך מעל תוכן אחר */
-  }
+ .nav-links {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  direction: rtl;
+  padding: 0;
+  right: 25vw;
+  margin-top: 3vh;
+  list-style: none;
+  z-index: 200;
+  font-family: "Heebo", sans-serif;
+}
+
+/* צבע טקסט במצב כהה */
+.nav-links.dark .nav-item {
+  color: #ddd;
+}
+
+/* פריט תפריט */
+.nav-item {
+  position: relative;
+  font-size: 1.5vw;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+/* פריטים נעולים */
+.nav-item.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #aaa !important;
+}
+
+/* פריטים פתוחים */
+.nav-item.open {
+  color: #222;
+}
+
+/* פריט פעיל (לייט) */
+.nav-item.open.active-link {
+  color: #007bff !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* הובר (לייט) */
+.nav-item.open:hover,
+.nav-item.open.active-link:hover {
+  color: #56c3e8 !important;
+}
+
+/* הובר כללי */
+.nav-item:hover {
+  color: #56c3e8;
+}
+
+/* פריט פעיל במצב כהה */
+.nav-links.dark .nav-item.open.active-link {
+  color: #66b3ff !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* הובר במצב כהה */
+.nav-links.dark .nav-item:hover {
+  color: #99ccff;
+}
+
+/* הובר לפריט פתוח במצב כהה */
+.nav-links.dark .nav-item.open:hover {
+  color: #99ccff;
+}
+
+/* הובר לפריט פעיל ופתוח כהה */
+.nav-links.dark .nav-item.open.active-link:hover {
+  color: #cce6ff !important;
+}
+
+/* המחבר בין הפריטים */
+.divider {
+  color: #757474;
+  padding: 0 5px;
+  user-select: none;
+  font-size: 1.6vw;
+}
+
+/* חץ תפריט משנה */
+.dropdown-arrow-nav {
+  width: 1vw;
+  transition: transform 0.3s ease;
+  transform: rotate(180deg);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+/* הובר על החץ */
+.dropdown-arrow-nav:hover {
+  width: 1.1vw;
+  cursor: pointer;
+}
+
+/* חץ פתוח */
+.dropdown-arrow-nav.open {
+  transform: rotate(90deg);
+}
+
+/* תפריט משנה */
+.sub-nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  margin-top: 5px;
+  list-style: none;
+  z-index: 100;
+  min-width: 180px;
+  direction: rtl;
+  font-family: "Heebo", sans-serif;
+  font-size: 1em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* פריט בתפריט משנה */
+.sub-nav-item {
+  padding: 6px 10px;
+  font-size: 0.9em;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+/* הובר על פריט משנה */
+.sub-nav-item:hover {
+  background: #f0f0f0;
+}
+
+/* תפריט משנה כהה */
+.nav-links.dark .sub-nav {
+  background: #2c3e50;
+  border: 1px solid #3a4d63;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* פריט משנה כהה */
+.nav-links.dark .sub-nav-item {
+  color: #ddd;
+}
+
+/* הובר על פריט משנה כהה */
+.nav-links.dark .sub-nav-item:hover {
+  background: #3a4d63;
+}
+
   
-  /* צבע טקסט לתפריט כהה */
-  .nav-links.dark .nav-item {
-    color: #fff;
-  }
-  
-  .nav-item {
-    position: relative;
-    font-family: "Heebo", sans-serif;
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    -webkit-user-select: none;
-    user-select: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    white-space: nowrap;
-  }
-  
-  /* קו תחתון בהובר */
-  .nav-item:hover {
-    text-decoration: underline;
-  }
-  
-  /* פריטים נעולים */
-  .nav-item.locked {
-    opacity: 0.4;
-    cursor: not-allowed;
-    pointer-events: none; /* חוסם לחיצות */
-    color: #999 !important; /* צבע אפור לנעול */
-  }
-  
-  /* פריטים פתוחים */
-  .nav-item.open {
-    opacity: 1;
-    cursor: pointer;
-    color: #000000; /* צבע כהה */
-  }
-  
-  /* פריט פעיל ופתוח */
-  .nav-item.open.active-link {
-    color: #007bff !important; /* כחול */
-    font-weight: bold;
-  }
-  
-  /* הובר לפריטים פעילים ופתוחים */
-  .active-link:hover,
-  .nav-item.open:hover {
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  /* המחבר בין הפריטים */
-  .divider {
-    color: #aaa;
-    padding: 0 5px;
-    user-select: none;
-  }
-  
-  /* החץ לצד פריט עם תפריט משני */
-  .dropdown-arrow-nav {
-    width: 20px;
-    height: auto;
-    transform: rotate(180deg);
-    transition: transform 0.3s;
-    user-select: none;
-    flex-shrink: 0; /* לא יתכווץ */
-  }
-  
-  /* הובר על החץ */
-  .dropdown-arrow-nav:hover {
-    width: 17px;
-    cursor: pointer;
-  }
-  
-  /* מצב פתוח - סיבוב החץ */
-  .dropdown-arrow-nav.open {
-    transform: rotate(90deg);
-  }
-  
-  /* רשימת תפריט משנה */
-  .sub-nav {
-    position: absolute;
-    top: 100%;
-    right: 0; /* פותח מצד ימין (RTL) */
-    background: white;
-    border: 1px solid #ccc;
-    list-style: none;
-    padding: 5px 10px;
-    margin-top: 5px;
-    z-index: 100;
-    min-width: 180px;
-    direction: rtl;
-    transform: none;
-    font-family: "Heebo";
-    font-size: 1.2em;
-  }
-  
-  /* פריטי תפריט משנה */
-  .sub-nav-item {
-    cursor: pointer;
-    padding: 5px 10px;
-    font-size: 0.8em;
-    color: #333;
-    transition: background-color 0.2s;
-    white-space: nowrap;
-  }
-  
-  /* הובר על פריטי משנה */
-  .sub-nav-item:hover {
-    background: #eee;
-  }
-  
-  /* צבעים לתפריט כהה */
-  .nav-links.dark .sub-nav {
-    background: #203160;
-    font-family: "Heebo";
-    font-size: 1em;
-  }
-  
-  .sub-nav-item.dark {
-    color: #ffffff;
-  }
-  
-  .nav-links.dark .sub-nav-item {
-    color: #ddd;
-  }
-  
-  .nav-links.dark .sub-nav-item:hover {
-    background: #203160;
-  }
-  
-  /* פריט פתוח, פעיל בתפריט כהה */
-  .nav-links.dark .nav-item.open.active-link {
-    color: #cce5ff !important;
-    font-weight: bold;
-  }
   
   
   

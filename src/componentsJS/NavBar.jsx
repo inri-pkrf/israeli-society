@@ -25,7 +25,7 @@ function NavBar({ isDark = false }) {
     setVisitedPages(storedPages);
   }, []);
 
-  const isActive = (path) => (location.pathname === path ? 'active-link' : '');
+  const isActive = (path) => location.pathname === path ? 'active-link' : '';
 
   const toggleDropdown = (path) => {
     setOpenDropdown((prev) => ({
@@ -40,26 +40,33 @@ function NavBar({ isDark = false }) {
     sessionStorage.setItem('pressedButtons', JSON.stringify(updated));
     navigate('/video-page', { state: { prompt: promptText } });
   };
+
   const handleClick = (item) => {
     if (item.locked) return;
-  
+
+    // אם יש פרומפט -> עבור לדף וידאו
     if (item.prompt) {
       if (item.prompt === 'החברה החרדית') handlePress('dos', item.prompt);
       if (item.prompt === 'החברה הערבית') handlePress('arab', item.prompt);
       if (item.prompt === 'מוגבלויות והגיל השלישי') handlePress('old', item.prompt);
-    } else {
+    }
+
+    // אחרת ניווט רגיל
+    else if (item.path) {
       navigate(item.path);
     }
-  
-    // סגירת כל הדרופ דאונים
+
+    // סגור תפריטים
     setOpenDropdown({});
-  
+
+    // עדכון דפים שנצפו
     if (item.path && !visitedPages.includes(item.path)) {
-      const updated = [...visitedPages, item.path];
-      setVisitedPages(updated);
-      sessionStorage.setItem('visitedPages', JSON.stringify(updated));
+      const updatedPages = [...visitedPages, item.path];
+      setVisitedPages(updatedPages);
+      sessionStorage.setItem('visitedPages', JSON.stringify(updatedPages));
     }
   };
+
   const allPromptsViewed = pressedButtons.dos && pressedButtons.arab && pressedButtons.old;
 
   const gameStepsViewed =
@@ -112,12 +119,11 @@ function NavBar({ isDark = false }) {
     <ul className={`nav-links ${isDark ? 'dark' : 'light'}`}>
       {parts.map((part, index) => (
         <React.Fragment key={index}>
-         <li
-          className={`nav-item ${isActive(part.path)} ${part.locked ? 'locked' : 'open'}`}
-          onClick={() => !part.locked && handleClick(part)}
-        >
-          {part.name}
-
+          <li
+            className={`nav-item ${isActive(part.path)} ${part.locked ? 'locked' : ''}`}
+            onClick={() => handleClick(part)}
+          >
+            {part.name}
 
             {part.subtopics.length > 0 && (
               <img
@@ -130,21 +136,25 @@ function NavBar({ isDark = false }) {
                 }}
               />
             )}
-              {openDropdown[part.path] && part.subtopics.length > 0 && (
-            <ul className="sub-nav">
-              {part.subtopics.map((sub, i) => (
-                <li
-                  key={i}
-                  className="sub-nav-item"
-                  onClick={() => handleClick(sub)}
-                >
-                  {sub.name}
-                </li>
-              ))}
-            </ul>
-          )}
+
+            {openDropdown[part.path] && (
+              <ul className="sub-nav">
+                {part.subtopics.map((sub, i) => (
+                  <li
+                    key={i}
+                    className={`sub-nav-item ${isActive(sub.path)}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleClick(sub);
+                    }}
+                  >
+                    {sub.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
-        
+
           {index < parts.length - 1 && <span className="divider">|</span>}
         </React.Fragment>
       ))}

@@ -208,21 +208,21 @@
 }
 
 #introduction-sub {
-  font-family: 'Heebo';
-  font-size: 3.5em;
-  color: white;
-  position: absolute;
-  direction: rtl;
-  margin-top: -6vh;
-  width: 87vw;
-  right: 50%;
-  transform: translateX(50%);
+font-family: 'Heebo';
+font-size: 2vw;
+color: white;
+position: absolute;
+direction: rtl;
+margin-top: -6vh;
+width: 87vw;
+right: 50%;
+transform: translateX(50%);
 }
 
 
 #sub-title{
   font-family: 'Karantina', Arial;
-  font-size: 9em;
+  font-size: 7vw;
   color: white;
   position: absolute;
   transform: translateX(50%);

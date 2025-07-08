@@ -13,8 +13,9 @@ const Game = () => {
   const [dragPos, setDragPos] = useState({ x: 0, y: 0 });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  const [feedback, setFeedback] = useState(''); // חדש - הודעות פידבק
-  const [gameOver, setGameOver] = useState(false); // חדש - האם המשחק נגמר?
+  const [feedback, setFeedback] = useState('');
+  const [feedbackType, setFeedbackType] = useState(''); // 'correct' or 'incorrect'
+  const [gameOver, setGameOver] = useState(false);
 
   const dragItemRef = useRef(null);
   const correctRef = useRef(null);
@@ -33,16 +34,15 @@ const Game = () => {
     if (statement.correct === isCorrectDrop) {
       setScore(prev => prev + 1);
       setFeedback('נכון! ניקוד עולה.');
+      setFeedbackType('correct');
     } else {
       setFeedback(`לא נכון.<br/>${statement.explanation}`);
+      setFeedbackType('incorrect');
     }
-    
 
-    // בדיקה אם זהו הפריט האחרון
     if (currentIndex < statements.length - 1) {
       setCurrentIndex(prev => prev + 1);
     } else {
-      // סיום המשחק
       setGameOver(true);
     }
 
@@ -86,7 +86,8 @@ const Game = () => {
       <h1 className='Game-title'>משחק קווים משיקים</h1>
       {!gameOver ? (
         <>
-        <p className="info-game">יש לגרור את האמרה לצבר המתאים</p>
+          <p className="info-game">יש לגרור את האמרה לצבר המתאים</p>
+
           <div
             className="statement-list"
             style={{
@@ -107,10 +108,7 @@ const Game = () => {
                     height: '80px',
                     width: '40vw',
                   }}
-                >
-                  {/* שמור מקום לתיבה בזמן גרירה */}
-                </div>
-
+                />
                 <div
                   ref={dragItemRef}
                   className="statement-box"
@@ -138,8 +136,8 @@ const Game = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     textAlign: 'center',
-                    fontSize:'1.4em',
-                    fontFamily:'Heebo'
+                    fontSize: '1.4em',
+                    fontFamily: 'Heebo',
                   }}
                 >
                   {statements[currentIndex].text}
@@ -154,11 +152,11 @@ const Game = () => {
 
           {/* אזור הפידבק */}
           {feedback && (
-  <div className="feedback">
-  <span dangerouslySetInnerHTML={{ __html: feedback }} />
-  <button onClick={() => setFeedback('')} className="close-feedback" aria-label="סגור הודעה">×</button>
-  </div>
-)}
+            <div className={`feedback ${feedbackType}`}>
+              <span dangerouslySetInnerHTML={{ __html: feedback }} />
+              <button onClick={() => setFeedback('')} className="close-feedback" aria-label="סגור הודעה">×</button>
+            </div>
+          )}
 
           <div
             className="dropzones"
@@ -216,42 +214,39 @@ const Game = () => {
           </div>
 
           <div className="score">
-            ניקוד:<br/>{statements.length} / {score}
+            ניקוד:<br />{statements.length} / {score}
           </div>
         </>
       ) : (
-        // סיום המשחק - מציג הודעת סיום בלבד
         <div className="game-over-message">
-  <p className="game-over-txt1">כל הכבוד!</p>
-  <p className="game-over-txt2">
-    הצלחת לזהות<br />
-    {score} / {statements.length} מאפיינים מקבילים בין החברה החרדית לערבית<br />
-    בשבילנו את/ה צבר אמיתי!
-  </p>
+          <p className="game-over-txt1">כל הכבוד!</p>
+          <p className="game-over-txt2">
+            הצלחת לזהות<br />
+            {score} / {statements.length} מאפיינים מקבילים בין החברה החרדית לערבית<br />
+            בשבילנו את/ה צבר אמיתי!
+          </p>
 
-  {/* קונטיינר לתמונות בשורה */}
-  <div className="end-images-row">
-    <img
-      src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusOld.png`}
-      alt="כפתור 3"
-      className="end-img"
-    />
-    <img
-      src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusDos.png`}
-      alt="כפתור 3"
-      className="end-img"
-    />
-    <img
-      src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusArab.png`}
-      alt="כפתור 3"
-      className="end-img"
-    />
-  </div>
-  <button className="next-button-game" onClick={() => navigate('/summary-points')}>
-           מעבר לנושא הבא
+          <div className="end-images-row">
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusOld.png`}
+              alt="כפתור 3"
+              className="end-img"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusDos.png`}
+              alt="כפתור 3"
+              className="end-img"
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/imgs/cuctuseJPNG/cactusArab.png`}
+              alt="כפתור 3"
+              className="end-img"
+            />
+          </div>
+          <button className="next-button-game" onClick={() => navigate('/summary-points')}>
+            מעבר לנושא הבא
           </button>
-</div>
-
+        </div>
       )}
 
       <div className="footer"></div>

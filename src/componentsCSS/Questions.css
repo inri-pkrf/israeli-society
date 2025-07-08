@@ -9,19 +9,19 @@
     direction: rtl;
   }
   .questions-card {
-    position: relative; /* חשוב */
+    position: relative;
     margin-top: 6vh;
     right: 50%;
     transform: translateX(50%);
-    width: 90vw;
+    width: 96vw;
     padding: 20px 10px;
     border-radius: 30px;
-    background-color: #d3d3d3;
+    background-color: none;
     z-index: 1000;
     box-sizing: border-box;
     min-height: 30vh;
-  
-    scroll-margin-top: 10vh; /* חשוב לגלילה חלקה */
+    border: dotted 4px #203160;
+    scroll-margin-top: 10vh;
   }
   
 

@@ -39,7 +39,12 @@
     cursor: pointer;
     width:60vw;
 }
-
+.video-play {
+    width: 90vw;
+    height: auto;
+    object-fit: cover;
+}
+  
 }
 
 
@@ -89,7 +94,11 @@
     width:60vw;
 }
 
-
+.video-play {
+    width: 90vw;
+    height: auto;
+    object-fit: cover;
+}
   
   }
   
@@ -124,9 +133,9 @@
         text-align: center;
         margin-top: 30vh;
     }
-    .video{
-        
-    }
+
+   
+    
 
 
     .next-step-button-2{
@@ -141,6 +150,10 @@
         cursor: pointer;
         width:60vw;
     }
-    
+    .video-play {
+        width: 90vw;
+        height: auto;
+        object-fit: cover;
+    } 
     
   }

@@ -12,7 +12,7 @@ const VideoPageStep2 = ({ videoSrc, videoInfo, onNextStep }) => {
   return (
     <div className="video-step2">
       <p className='video-info2'>{videoInfo}</p>
-      <video className='video' controls>
+      <video className='video-play ' controls>
         <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

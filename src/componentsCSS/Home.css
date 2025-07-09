@@ -232,6 +232,218 @@ position: fixed;
     z-index: 100;
 }
 }
+@media screen and (min-width: 769px) and (max-width: 1024px)  {
+    
+    .homepage-container {
+        position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #ffffff;
+          z-index: 2000; /* Ensure it appears above the header */
+          text-align: right;
+          padding-top: 2vh;
+          overflow: scroll;
+          direction: rtl;
+        }
+        
+        
+        
+        
+        .home-title{
+            font-family: "karantina";
+            font-size: 5em;
+            font-weight: 400;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 90vw;
+            color: #1bbfe5;
+            margin-top: 13vh;
+            text-align: center;
+        
+        }
+        
+        .info1{
+            font-family: "Heebo";
+            font-size: 1.8em;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 70vw;
+            margin-top: 32vh;
+            text-align: center;
+        
+        }
+        .info2{
+            font-family: "Heebo";
+            font-size: 1.8em;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 70vw;
+            margin-top: 56vh;
+            text-align: center;
+        
+        }
+        .info3{
+            font-family: "Heebo";
+            font-size: 1.8em;
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            width: 70vw;
+            margin-top: 70vh;
+            text-align: center;
+        
+        }
+        .home-button {
+            background-color: #2893b7;
+            border: none;
+            border-radius: 55px;
+            width: 35vw;
+            height: 10vh;
+            position: absolute;
+            font-size: 3.5em;
+            font-family: "Karantina";
+            font-weight: bold;
+            color: #ffffff;
+            padding: 0.5vw;
+            right: 50%;
+            transform: translateX(50%);
+            margin-top: 87vh;
+            box-shadow: 9px 10px 20px #323030, -3px -3px 5px rgba(255, 255, 255, 0.2);
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        .pakar-logo{
+            position: absolute;
+            height: 10vh;
+            width: auto;
+            right: 46vw;
+            margin-top: 6vh;
+        }
+        .pakar-grey{
+            position: absolute;
+            height: 10vh;
+            width: auto;
+            right: 64vw;
+            margin-top: 6vh;
+        }
+        
+        
+        
+        .collage-logo{
+            position: absolute;
+            height: 10vh;
+            width: auto;
+            margin-top: 5vh;
+            right: 20%;
+        }
+        
+        
+        
+        .credits{
+            font-family: 'Heebo';
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        width: 60vw;
+        font-size: 2em;
+        color: #323030;
+        margin-top: 20vh;
+        text-align: center;
+        }
+        
+        .greeting-div{
+            position: absolute;
+            width: 100vw;
+            height: 40vh;
+            background-color: rgb(238, 238, 238);
+            margin-top: 101vh;
+            right: 50%;
+            transform: translateX(50%);
+            direction: rtl;
+            font-family: "Heebo";
+        }
+        .bold-text{
+            position: absolute;
+            text-align: right;
+            right: 16vw;
+            font-weight: bold;
+            color: rgb(86, 85, 85);
+            font-size: 1.1em;
+        }
+        
+        .regular-text{
+            position: absolute;
+            text-align: center;
+            right: 67vw;
+            font-size: 1.1em;
+            color: rgb(86, 85, 85);
+        
+        
+        
+        }
+        
+        
+        
+    
+        
+        .feedback{
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            color: rgb(86, 85, 85);
+            margin-top: 200vh;
+            margin-bottom: 10vh;
+            width: 93vw;
+            font-size: 1.3em;
+            text-align: center;
+        } 
+        
+        .footer{
+            position: absolute;
+            right: 50%;
+            height: 10vh;
+            transform: translateX(50%);
+            background-color: rgba(86, 85, 85, 0);
+            font-weight: bold;
+            margin-top: 155vh;
+            margin-bottom: 22vh;
+            width: 90vw;
+            font-size: 1.1em;
+        }
+        
+        
+        #linkMenuGrey{
+            color:rgb(86, 85, 85);
+        }
+        
+        .linkCredits{
+            position: absolute;
+            margin-top: 150vh;
+            text-decoration: underline;
+            font-family: "Heebo";
+            right: 50%;
+            transform: translateX(50%);
+            font-size: 1.2em;
+            text-align: center;
+            color: #525253;
+            direction: rtl;
+            width: 100vw;
+            z-index: 100;
+        }
+
+}
+
 
 @media screen and (min-width: 1025px) {
  
@@ -300,14 +512,14 @@ position: fixed;
         
         }
         .home-button {
-            background-color: #1bbfe5;
+            background-color: #56c3e8;
             border: none;
             border-radius: 55px;
             width: 30vw;
             height: 10vh;
             position: absolute;
-            font-size: 4em;
-            font-family: "Karantina";
+            font-size: 3.5em;
+             font-family: "Karantina";
             font-weight: bold;
             color: #ffffff;
             padding: 0.5vw;

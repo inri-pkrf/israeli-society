@@ -1,3 +1,6 @@
+
+@media screen and (max-width: 768px) {
+
 .questions {
     position: relative;
     top: 35vh;
@@ -126,4 +129,139 @@
     margin-top: -6vh;
     text-align: center;
   }
- 
+}
+@media screen and (min-width: 769px) and (max-width: 1024px)  {
+
+  .questions {
+    position: relative;
+    top: 35vh;
+    left: 0;
+    width: 90vw;
+    height: 86vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    direction: rtl;
+  }
+  .questions-card {
+    position: relative;
+    margin-top: 6vh;
+    right: 50%;
+    transform: translateX(50%);
+    width: 96vw;
+    padding: 20px 10px;
+    border-radius: 30px;
+    background-color: none;
+    z-index: 1000;
+    box-sizing: border-box;
+    min-height: 30vh;
+    border: dotted 4px #203160;
+    scroll-margin-top: 10vh;
+  }
+  
+
+
+.questions {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Heebo";
+    
+  }
+  .Question-t{
+    font-family: "Heebo";
+    font-size: 1.4em;
+    width: 74vw;
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+    font-weight: 200;
+    color: #282886;
+
+
+  }
+  .answers {
+    display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: -2vh;
+        margin-bottom: 20px;
+  }
+  
+  .answer-button {
+    padding: 10px;
+    font-size: 1.1em;
+    background-color: transparent;
+    width: 87vw;
+    height: 11vh;
+    border-radius: 30px;
+    font-family: "Heebo";
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    cursor: pointer;
+  }
+  
+  .answer-button.selected {
+    background-color: #d3d3d3;
+  }
+  
+  .next-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .feedback-Q {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .feedback-Q.correct {
+    color: #4caf50; /* ירוק */
+  }
+  
+  .feedback-Q.wrong {
+    color: #f44336; /* אדום */
+  }
+  .next-step-button-Q {
+    margin-top: 30px;
+    padding: 10px 25px;
+    font-size: 1.5em;
+    border-radius: 30px;
+    background-color:#1bbfe5;
+    color: white;
+    border: none;
+    font-family: "Heebo";
+    cursor: pointer;
+    width:60vw;
+  }
+  .excelent{
+    font-family: "Karantina";
+    font-size: 2.7em;
+    font-weight: 400;
+    position: relative;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90vw;
+    color: #535353;
+    text-align: center;
+    margin-top: 18vh;
+  }
+  .Q-title{
+    font-family: "karantina";
+    font-size: 2em;
+    font-weight: 400;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90vw;
+    color: #535353;
+    margin-top: -6vh;
+    text-align: center;
+  }
+
+}
+@media screen and (min-width: 1025px) {
+
+}

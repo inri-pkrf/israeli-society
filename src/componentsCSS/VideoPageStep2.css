@@ -53,61 +53,8 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px)  {
   
-  
-.video-step2 {
-    position: fixed;
-    top: 10vh;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    align-items: center;
-    z-index: 9990;
-    direction: rtl;
-}
-
-
-
-.video-info2{
-    font-family: "Heebo";
-    font-size: 1.2em;
-    font-weight: 400;
-    position: relative;
-    right: 50%;
-    transform: translateX(50%);
-    width: 90vw;
-    color: #535353;
-    text-align: center;
-    margin-top: 30vh;
-}
-.next-step-button-2{
-    margin-top: 30px;
-    padding: 10px 25px;
-    font-size: 1.5em;
-    border-radius: 30px;
-    background-color:#1bbfe5;
-    color: white;
-    border: none;
-    font-family: "Heebo";
-    cursor: pointer;
-    width:60vw;
-}
-
-.video-play {
-    width: 90vw;
-    height: auto;
-    object-fit: cover;
-}
-  
-  }
-  
-  
-  
-  @media screen and (min-width: 1025px) {
-
     .video-step2 {
-        position: fixed;
+        position: relative;
         top: 10vh;
         left: 0;
         width: 100vw;
@@ -123,7 +70,7 @@
     
     .video-info2{
         font-family: "Heebo";
-        font-size: 1.2em;
+        font-size: 2em;
         font-weight: 400;
         position: relative;
         right: 50%;
@@ -131,7 +78,7 @@
         width: 90vw;
         color: #535353;
         text-align: center;
-        margin-top: 30vh;
+        margin-top: 20vh;
     }
 
    
@@ -148,12 +95,70 @@
         border: none;
         font-family: "Heebo";
         cursor: pointer;
-        width:60vw;
+        width:50vw;
     }
     .video-play {
+        width: 70vw;
+        height: auto;
+        object-fit: cover;
+    } 
+  
+  }
+  
+  
+  
+  @media screen and (min-width: 1025px) {
+
+    .video-step2 {
+        position: relative;
+        top: 10vh;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        align-items: center;
+        z-index: 9990;
+        direction: rtl;
+    }
+    
+    
+    
+    .video-info2{
+        font-family: "Heebo";
+        font-size: 2em;
+        font-weight: 400;
+        position: relative;
+        right: 50%;
+        transform: translateX(50%);
         width: 90vw;
+        color: #535353;
+        text-align: center;
+        margin-top: 20vh;
+    }
+
+   
+    
+
+
+    .next-step-button-2{
+        margin-top: 30px;
+        padding: 10px 25px;
+        font-size: 1.5em;
+        border-radius: 30px;
+        background-color:#1bbfe5;
+        color: white;
+        border: none;
+        font-family: "Heebo";
+        cursor: pointer;
+        width:40vw;
+    }
+    .video-play {
+        width: 50vw;
         height: auto;
         object-fit: cover;
     } 
     
   }
+
+  

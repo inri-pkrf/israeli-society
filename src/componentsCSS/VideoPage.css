@@ -78,73 +78,75 @@
 
 @media screen and (min-width: 769px) and (max-width: 1024px)  {
     #videoPage {
-      position: fixed;
-      top: 10vh;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-size: cover;
-      background-repeat: no-repeat;
-      align-items: center;
-      z-index: 9990;
-      background-image: url('/public/assets/imgs/Bg3.jpg');
-      direction: rtl;
+        position: relative;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        top: 10vh;
+        left: 0;
+        width: 100vw;
+        height: 110vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        align-items: center;
+        z-index: 9990;
+        background-image: url('/public/assets/imgs/Bg3.jpg');
+        direction: rtl;
+    }
+     
+    
+    .circle-div-video {
+      border: 1px solid white;
+      border-top-left-radius: 249.3vh;
+      border-top-right-radius: 249.3vh;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background-color: white;
+      height: 113vh;
+      width: 252vh;
+      right: 50%;
+      transform: translateX(50%);
+      position: absolute;
+      margin-top: 6vh;
+    }
+    
+  
+  .cactus-img{
+      position: absolute;
+      right: 50%;
+      transform: translateX(50%);
+      height: 14vh;
+      width: auto;
+      margin-top: 8vh;
+      z-index: 100000;
+  
   }
-   
-  .circle-div-video {
-    border: 1px solid white;
-    border-top-left-radius: 53.5vh;
-    border-top-right-radius: 53.5vh;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    background-color: white;
-    height: 136vh;
-    width: 107vh;
-    right: 50%;
-    transform: translateX(50%);
-    position: absolute;
-    margin-top: 63vh;
+  .page-title-video{
+      font-family: "karantina";
+      color:rgb(40, 40, 134);
+      font-size: 5em;
+      margin-top: 14vh;
   }
   
-
-.cactus-img{
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-    height: 12vh;
-    width: auto;
-    margin-top: -61vh;
-    z-index: 100000;
-
-}
-.page-title-video{
-    font-family: "karantina";
-    color:rgb(40, 40, 134);
-    font-size: 2.5em;
-    margin-top: 15vh;
-}
-
-.Q-explain{
-    position: absolute;
-    margin-top: 34vh;
-    width: 90vw;
-    right: 50%;
-    transform: translateX(50%);
-    font-family: "Heebo";
-    font-size: 1.2em;
-}
-.footer-vid {
-    position: absolute;
-    right: 50%;
-    height: 10vh;
-    transform: translateX(50%);
-    background-color: rgba(86, 85, 85, 0);
-    font-weight: bold;
-    margin-top: 63vh;
-    margin-bottom: -31vh;
-    width: 90vw;
-    font-size: 1.1em;
-}
+  .Q-explain{
+      position: absolute;
+      margin-top: 45vh;
+      width: 90vw;
+      right: 50%;
+      transform: translateX(50%);
+      font-family: "Heebo";
+      font-size: 2em;
+  }
+  .footer-vid {
+      position: absolute;
+      right: 50%;
+      height: 10vh;
+      transform: translateX(50%);
+      background-color: rgba(86, 85, 85, 0);
+      font-weight: bold;
+      margin-top: 2vh;
+      width: 90vw;
+      font-size: 1.1em;
+  }
   
   
   }
@@ -153,11 +155,13 @@
   
   @media screen and (min-width: 1025px) {
     #videoPage {
-      position: fixed;
+      position: relative;
+      overflow-x: hidden;
+      overflow-y: scroll;
       top: 10vh;
       left: 0;
       width: 100vw;
-      height: 100vh;
+      height: 150vh;
       background-size: cover;
       background-repeat: no-repeat;
       align-items: center;
@@ -187,7 +191,7 @@
     position: absolute;
     right: 50%;
     transform: translateX(50%);
-    height: 17vh;
+    height: 14vh;
     width: auto;
     margin-top: 8vh;
     z-index: 100000;
@@ -197,7 +201,7 @@
     font-family: "karantina";
     color:rgb(40, 40, 134);
     font-size: 5em;
-    margin-top: 18vh;
+    margin-top: 14vh;
 }
 
 .Q-explain{
@@ -207,7 +211,7 @@
     right: 50%;
     transform: translateX(50%);
     font-family: "Heebo";
-    font-size: 1.2em;
+    font-size: 2em;
 }
 .footer-vid {
     position: absolute;
@@ -216,8 +220,7 @@
     transform: translateX(50%);
     background-color: rgba(86, 85, 85, 0);
     font-weight: bold;
-    margin-top: 63vh;
-    margin-bottom: -31vh;
+    margin-top: 42vh;
     width: 90vw;
     font-size: 1.1em;
 }

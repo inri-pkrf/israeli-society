@@ -17,7 +17,7 @@
  
 
 .part-titletwo-sub{
-    font-family: "heebo";
+    font-family: "Assistant";
     margin-top: 2vh;
     right: 50%;
     transform: translateX(50%);
@@ -28,7 +28,7 @@
 }
 
 .instructions-parttwo-sub{
-    font-family: "heebo";
+    font-family: "Assistant";
     margin-top: 9vh;
     font-size: 1.3em;
     right: 50%;
@@ -104,7 +104,7 @@
     background-color: rgb(53, 184, 141);
     color: white;
     border: none;
-    font-family: "Heebo";
+    font-family: "Assistant";
     cursor: pointer;
     width:50vw;
   }
@@ -117,7 +117,7 @@
     background-color: rgb(53, 184, 141);
     color: white;
     border: none;
-    font-family: "Heebo";
+    font-family: "Assistant";
     opacity: 0.6;
     cursor: not-allowed;
     width:50vw;
@@ -142,7 +142,7 @@
  
 
 .part-titletwo-sub{
-    font-family: "heebo";
+    font-family: "Assistant";
     margin-top: 2vh;
     font-size: 2em;
 
@@ -155,7 +155,7 @@
 }
 
 .instructions-parttwo-sub{
-    font-family: "heebo";
+    font-family: "Assistant";
     margin-top: 9vh;
     font-size: 2.5em;
     right: 50%;
@@ -234,7 +234,7 @@
     background-color: rgb(53, 184, 141);
     color: white;
     border: none;
-    font-family: "Heebo";
+    font-family: "Assistant";
     cursor: not-allowed;
     width: 33vw;
   }
@@ -247,7 +247,7 @@
     background-color: rgb(53, 184, 141);
     color: white;
     border: none;
-    font-family: "Heebo";
+    font-family: "Assistant";
     opacity: 0.6;
     cursor: not-allowed;
     width: 33vw;
@@ -276,7 +276,7 @@
  
 
 .part-titletwo-sub{
-    font-family: "heebo";
+    font-family: "Assistant";
     margin-top: 2vh;
     font-size: 2em;
 
@@ -289,7 +289,7 @@
 }
 
 .instructions-parttwo-sub{
-    font-family: "heebo";
+    font-family: "Assistant";
     margin-top: 9vh;
     font-size: 2.5em;
     right: 50%;
@@ -346,11 +346,12 @@
     white-space: nowrap;
   }
   
-  
+
   .button-img {
-    width: 56%;
+    width: 34%;
     height: auto;
-  }
+}
+  
   
   .half-circle-button.pressed {
     background-color: rgb(53, 184, 141);
@@ -363,28 +364,20 @@
   .next-step-button-21 {
     margin-top: 12vh;
     padding: 10px 25px;
-    font-size: 3.5em;
+    font-size: 5vmin;
     border-radius: 54px;
     background-color: rgb(53, 184, 141);
     color: white;
     border: none;
-    font-family: "Heebo";
+    font-family: "Assistant";
     cursor: not-allowed;
-    width: 33vw;
+    width: 20vw;
   }
   
   .next-step-button-21:disabled{
-    margin-top: 12vh;
-    padding: 10px 25px;
-    font-size: 3.5em;
-    border-radius: 54px;
-    background-color: rgb(53, 184, 141);
-    color: white;
-    border: none;
-    font-family: "Heebo";
     opacity: 0.6;
     cursor: not-allowed;
-    width: 33vw;
+
    
   }
 }

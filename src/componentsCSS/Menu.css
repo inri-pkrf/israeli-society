@@ -309,7 +309,7 @@ li[style*="not-allowed"] {
     }
      
     .menu-title{
-        font-family: "karantina";
+               font-family: "karantina";
         font-size: 4em;
         font-weight: 400;
         position: absolute;
@@ -317,13 +317,13 @@ li[style*="not-allowed"] {
         transform: translateX(50%);
         width: 90vw;
         color: #ffffff;
-        margin-top: -54vh;
+        margin-top: -64vh;
         text-align: center;
     
     }
     
     .menu-list-home {
-        right: 50%;
+              right: 50%;
         transform: translateX(-10%);
         color: white;
         margin-bottom: 1vh;
@@ -334,7 +334,7 @@ li[style*="not-allowed"] {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        margin-top: 14vh;
+        margin-top: 27vh;
     
     }
     
@@ -405,32 +405,41 @@ li[style*="not-allowed"] {
         padding-left: 3vw;
     }
     
-    .dropdown-arrow-home {
-        transform: rotate(180deg);
-        height: 3vh;
-        width: auto;
-        padding-left: 5vw;
-        display: inline-block;
-    }
-    
-    .dropdown-arrow-home.open {
-        transform: rotate(90deg);
-    }
+   
     
     .submenu-item-home {
-        font-size: 1em;
+        font-size: 3.5vmin;
         font-family: "Heebo";
         padding: 0.5vh 0;
         cursor: pointer;
         transition: background-color 0.3s;
     }
-    
+
     .submenu-list-home {
-        padding: 0;
-        margin-top: 1vh;
-        list-style: none;
-        padding-left: 0;
-        text-align: center;
-        width: 100%;
-    }
+        direction: rtl;
+    display: flex;
+    flex-direction: row;
+    margin-top: 3vh;
+    padding-left: 0;
+    gap: 4vw;
+    text-align: center;
+    width: 100%;
+    list-style-type: none; /* מכבים את הנקודות האוטומטיות */
+}
+
+.submenu-item-home {
+    position: relative;
+    padding-right: 1.2em; /* מקום לנקודה */
+}
+
+.submenu-item-home::before {
+    content: "•"; /* נקודה */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white; /* צבע הנקודה, אפשר לשנות */
+    font-size: 1.2em;
+}
+
     }

@@ -261,7 +261,7 @@ transform: translateX(50%);
   left: 10%;
   background-color: transparent;
   font-family: 'Assistant', sans-serif;
-  font-size: 3em;
+  font-size: 8vmin;
   color: black;
   z-index: 9999999;
   border: none;

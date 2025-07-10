@@ -20,6 +20,7 @@ const Menu = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState({});
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
 
   useEffect(() => {
     sessionStorage.setItem('pressedButtons', JSON.stringify(pressedButtons));
@@ -28,6 +29,16 @@ const Menu = () => {
   useEffect(() => {
     const storedPages = JSON.parse(sessionStorage.getItem('visitedPages')) || [];
     setVisitedPages(storedPages);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 768);
+    };
+
+    handleResize(); // Run once at start
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleClick = () => {
@@ -77,7 +88,7 @@ const Menu = () => {
 
   const gameStepsViewed =
     visitedPages.includes('/part-three') &&
-    visitedPages.includes('/game-intro')  &&
+    visitedPages.includes('/game-intro') &&
     visitedPages.includes('/game-explaine') &&
     visitedPages.includes('/summary-points');
 
@@ -92,11 +103,11 @@ const Menu = () => {
     {
       name: 'חלק שני',
       path: '/part-two',
-      locked: !(visitedPages.includes('/part-one') ),
+      locked: !visitedPages.includes('/part-one'),
       subtopics: [
         { name: 'החברה החרדית', prompt: 'החברה החרדית' },
         { name: 'החברה הערבית', prompt: 'החברה הערבית' },
-        { name: 'מוגבלויות והגיל השלישי', prompt: 'מוגבלויות והגיל השלישי'},
+        { name: 'מוגבלויות והגיל השלישי', prompt: 'מוגבלויות והגיל השלישי' },
       ],
     },
     {
@@ -117,63 +128,64 @@ const Menu = () => {
     },
   ];
 
-
-
- 
   return (
     <div id="menu">
-      <h1 className="menu-title" > שיעור דיגיטלי על החברה הישראלית</h1>
+      <h1 className="menu-title">שיעור דיגיטלי על החברה הישראלית</h1>
       <ul className="menu-list-home">
-          {parts.map((part, index) => (
-            <React.Fragment key={index}>
-              <li
-                className={`menu-item-home ${visitedPages.includes(part.path) ? 'active' : ''} ${part.locked ? 'fade' : ''}`}
-                style={{ cursor: part.locked ? 'not-allowed' : 'pointer' }}
-                onClick={() => !part.locked && handleMenuClick(part)}
-              >
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  {part.locked && (
-                    <img
-                      src={`${process.env.PUBLIC_URL}/assets/imgs/lock.png`}
-                      alt="Lock Icon"
-                      className="lock-icon"
-                    />
-                  )}
-                  {part.name}
-                  {part.subtopics.length > 0 && (
-                    <img
-                      src={`${process.env.PUBLIC_URL}/assets/imgs/next.png`}
-                      alt="Next"
-                      className={`dropdown-arrow-home ${openDropdown[part.path] ? 'open' : ''}`}
+        {parts.map((part, index) => (
+          <React.Fragment key={index}>
+            <li
+              className={`menu-item-home ${visitedPages.includes(part.path) ? 'active' : ''} ${
+                part.locked ? 'fade' : ''
+              }`}
+              style={{ cursor: part.locked ? 'not-allowed' : 'pointer' }}
+              onClick={() => !part.locked && handleMenuClick(part)}
+            >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                {part.locked && (
+                  <img
+                    src={`${process.env.PUBLIC_URL}/assets/imgs/lock.png`}
+                    alt="Lock Icon"
+                    className="lock-icon"
+                  />
+                )}
+                {part.name}
+                {part.subtopics.length > 0 && !isDesktop && (
+                  <img
+                    src={`${process.env.PUBLIC_URL}/assets/imgs/next.png`}
+                    alt="Next"
+                    className={`dropdown-arrow-home ${openDropdown[part.path] ? 'open' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleDropdown(part.path);
+                    }}
+                  />
+                )}
+              </div>
+
+              {/* תתי הנושאים מוצגים אם במחשב או אם בחרנו לפתוח בטלפון */}
+              {(isDesktop || openDropdown[part.path]) && part.subtopics.length > 0 && (
+                <ul className="submenu-list-home">
+                  {part.subtopics.map((subtopic, subIndex) => (
+                    <li
+                      key={subIndex}
                       onClick={(e) => {
                         e.stopPropagation();
-                        toggleDropdown(part.path);
+                        handleMenuClick(subtopic);
                       }}
-                    />
-                  )}
-                </div>
-                {openDropdown[part.path] && part.subtopics.length > 0 && (
-                  <ul className="submenu-list-home">
-                    {part.subtopics.map((subtopic, subIndex) => (
-                      <li
-                        key={subIndex}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleMenuClick(subtopic);
-                        }}
-                        className="submenu-item-home"
-                      >
-                        {subtopic.name}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            </React.Fragment>
-          ))}
-        </ul>
- 
-<div className="footer"></div>
+                      className="submenu-item-home"
+                    >
+                      {subtopic.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          </React.Fragment>
+        ))}
+      </ul>
+
+      <div className="footer"></div>
     </div>
   );
 };

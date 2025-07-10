@@ -172,18 +172,18 @@
    
   
   .circle-div-video {
-    border: 1px solid white;
-    border-top-left-radius: 249.3vh;
-    border-top-right-radius: 249.3vh;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    background-color: white;
-    height: 113vh;
-    width: 252vh;
-    right: 50%;
-    transform: translateX(50%);
-    position: absolute;
-    margin-top: 6vh;
+   border: 1px solid white;
+        border-top-left-radius: 249.3vh;
+        border-top-right-radius: 249.3vh;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: white;
+        height: 199vh;
+        width: 358vh;
+        right: 50%;
+        transform: translateX(50%);
+        position: absolute;
+        margin-top: 6vh;
   }
   
 

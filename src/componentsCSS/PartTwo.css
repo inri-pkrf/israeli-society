@@ -248,13 +248,13 @@
     
     }
     
-    .next-arrow{
+    .next-arrow-2{
         position: absolute;
         width: auto;
         height: 15vh;
         transform: rotate(200deg);
         right: 20vw;
-        bottom: 11vh;
+        bottom: 3vh;
 
     
     }
@@ -268,12 +268,12 @@
         margin-top: 61vh;
     
     }
-    .next-text{
+    .next-text-2{
         position:absolute;
-        bottom:-3vh;
+        bottom:-9vh;
         font-family:"Heebo";
         color:white;
-        right:1vw;
+        right:10vw;
         font-size: 2em;
     
     }

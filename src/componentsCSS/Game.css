@@ -57,7 +57,7 @@ position: relative;
 }
   
 .game-orders{
-    position: fixed;
+       position: fixed;
     font-family: "Heebo";
     text-align: center;
     direction: rtl;
@@ -65,15 +65,15 @@ position: relative;
     right: 50%;
     transform: translateX(50%);
     color: rgb(105, 105, 105);
-    font-size: 1.3em;
+    font-size: 7vmin;
     font-weight: bold;
 }
 .feedback {
-    position: fixed;
-    margin-top: -26vh;
+       position: fixed;
+    margin-top: 2vh;
     left: 50%;
     transform: translateX(-50%);
-  background-color: rgb(123 208 237);
+    background-color: rgb(21 82 103);
     color: white;
     padding: 12px 20px;
     border-radius: 24px;
@@ -82,10 +82,11 @@ position: relative;
     justify-content: center;
     align-items: center;
     gap: 12px;
-    font-size: 2rem;
+    font-size: 7vmin;
     max-width: 79vw;
     z-index: 2000;
-    height: 61vh;
+    height: 40vh;
+    -webkit-user-select: none;
     user-select: none;
     text-align: center;
   }
@@ -93,13 +94,12 @@ position: relative;
   .feedback span {
     direction: rtl;
     width: 100%;
-    color: black;
-  }
+    color: rgb(255, 255, 255);
   .feedback.correct {
     font-family: "Karantina";
     font-size: 4rem;
     font-weight: lighter;
-
+  }
   }
   
   .feedback.incorrect {
@@ -114,7 +114,7 @@ position: relative;
     right: 12px;
     background: transparent;
     border: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-size: 5rem;
     cursor: pointer;
     line-height: 1;

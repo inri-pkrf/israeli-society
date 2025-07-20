@@ -66,21 +66,21 @@ position: fixed;
 
 }
 .home-button {
-    background-color: #1bbfe5;
-    border: none;
-    border-radius: 55px;
-    width: 75vw;
-    height: 10vh;
-    position: absolute;
-    font-size: 2em;
-    font-family: "Karantina";
-    font-weight: bold;
-    color: #ffffff;
-    padding: 1.5vw;
-    right: 50%;
-    transform: translateX(50%);
-    margin-top: 120vh;
-    box-shadow: 9px 10px 20px #323030, -3px -3px 5px rgba(255, 255, 255, 0.2);
+        background-color: #1bbfe5;
+        border: none;
+        border-radius: 55px;
+        width: 75vw;
+        height: 10vh;
+        position: absolute;
+        font-size: 2em;
+        font-family: "Karantina";
+        font-weight: bold;
+        color: #ffffff;
+        padding: 1.5vw;
+        right: 50%;
+        transform: translateX(50%);
+        margin-top: 106vh;
+        box-shadow: 9px 10px 20px #323030, -3px -3px 5px rgba(255, 255, 255, 0.2);
 }
 
 
@@ -92,18 +92,18 @@ position: fixed;
 
 
 .pakar-logo{
-    position: absolute;
-    height: 7vh;
-    width: auto;
-    right: 62vw;
-    margin-top: 6vh;
+ position: absolute;
+        height: 7vh;
+        width: auto;
+        right: 62vw;
+        margin-top: 5vh;
 }
 .pakar-grey{
     position: absolute;
     height: 7vh;
     width: auto;
     right: 79vw;
-    margin-top: 6vh;
+    margin-top: 5vh;
 }
 
 
@@ -133,14 +133,14 @@ position: fixed;
 
 .greeting-div{
     position: absolute;
-    width: 100vw;
-    height: 40vh;
-    background-color: rgb(238, 238, 238);
-    margin-top: 139vh;
-    right: 50%;
-    transform: translateX(50%);
-    direction: rtl;
-    font-family: "Assistant";
+        width: 100vw;
+        height: 40vh;
+        background-color: rgb(238, 238, 238);
+        margin-top: 126vh;
+        right: 50%;
+        transform: translateX(50%);
+        direction: rtl;
+        font-family: "Assistant";
 }
 .bold-text{
     position: absolute;

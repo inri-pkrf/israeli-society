@@ -4,27 +4,13 @@ import '../componentsCSS/Hamburger.css';
 
 const Hamburger = () => {
   const navigate = useNavigate();
-  
 
   const [visitedPages, setVisitedPages] = useState(() => {
     return JSON.parse(sessionStorage.getItem('visitedPages')) || [];
   });
 
-
-  const [pressedButtons, setPressedButtons] = useState(() => {
-    return JSON.parse(sessionStorage.getItem('pressedButtons')) || {
-      dos: false,
-      arab: false,
-      old: false,
-    };
-  });
-
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState({});
-
-  useEffect(() => {
-    sessionStorage.setItem('pressedButtons', JSON.stringify(pressedButtons));
-  }, [pressedButtons]);
 
   useEffect(() => {
     const storedPages = JSON.parse(sessionStorage.getItem('visitedPages')) || [];
@@ -43,8 +29,9 @@ const Hamburger = () => {
   };
 
   const handlePress = (key, promptText) => {
-    const updated = { ...pressedButtons, [key]: true };
-    setPressedButtons(updated);
+    const raw = sessionStorage.getItem('pressedButtons');
+    const current = raw ? JSON.parse(raw) : { dos: false, arab: false, old: false };
+    const updated = { ...current, [key]: true };
     sessionStorage.setItem('pressedButtons', JSON.stringify(updated));
     navigate('/video-page', { state: { prompt: promptText } });
     setIsOpen(false);
@@ -74,11 +61,17 @@ const Hamburger = () => {
     }
   };
 
+  // תמיד בודק מהsessionStorage
+  const pressedButtons = (() => {
+    const raw = sessionStorage.getItem('pressedButtons');
+    return raw ? JSON.parse(raw) : { dos: false, arab: false, old: false };
+  })();
+
   const allPromptsViewed = pressedButtons.dos && pressedButtons.arab && pressedButtons.old;
 
   const gameStepsViewed =
     visitedPages.includes('/part-three') &&
-    visitedPages.includes('/game-intro')  &&
+    visitedPages.includes('/game-intro') &&
     visitedPages.includes('/game-explain') &&
     visitedPages.includes('/summary-points');
 
@@ -93,11 +86,11 @@ const Hamburger = () => {
     {
       name: 'חלק שני',
       path: '/part-two',
-      locked: !(visitedPages.includes('/part-one') ),
+      locked: !visitedPages.includes('/part-one'),
       subtopics: [
         { name: 'החברה החרדית', prompt: 'החברה החרדית' },
         { name: 'החברה הערבית', prompt: 'החברה הערבית' },
-        { name: 'מוגבלויות והגיל השלישי', prompt: 'מוגבלויות והגיל השלישי'},
+        { name: 'מוגבלויות והגיל השלישי', prompt: 'מוגבלויות והגיל השלישי' },
       ],
     },
     {

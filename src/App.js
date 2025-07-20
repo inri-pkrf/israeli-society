@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Intro from './componentsJS/Intro';
 import Home from './componentsJS/Home';
@@ -17,11 +17,49 @@ import SummaryPoints from './componentsJS/SummaryPoints'
 import FinalScreen from './componentsJS/FinalScreen'
 import Quiz from './componentsJS/Quiz'
 
+// מכאן זה למצב אנכי בלבד בהמשך לטפל בזה
 
+function useIsPortraitAndSmallScreen() {
+  const [isAllowed, setIsAllowed] = React.useState(() => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    if (width > 768) return false;  // כל רוחב מעל 768 - אסור
+    return height > width;           // במכשירים קטנים - רק אנכי מותר
+  });
 
+  React.useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      if (width > 768) {
+        setIsAllowed(false);
+      } else {
+        setIsAllowed(height > width);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return isAllowed;
+}
 
 
 function App() {
+// מכאן זה למצב אנכי בלבד בהמשך לטפל בזה
+  const location = useLocation();
+  const allowedHorizontalPaths = ['/video-page'];
+  const isAllowed = useIsPortraitAndSmallScreen();
+  const isHorizontalAllowed = allowedHorizontalPaths.includes(location.pathname);
+   if (!isHorizontalAllowed && !isAllowed) {
+    return (
+      <div className="orientation-warning" >
+      
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       <Header className="header-fixed" />

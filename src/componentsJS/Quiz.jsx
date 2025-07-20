@@ -149,14 +149,15 @@ import html2canvas from 'html2canvas';
           </div>
         ) : (
           <div className="results">
+              
             <p className='score'>ציון: {score}</p>
             <p className="user-name">שם: {firstName} {lastName}</p>
             {score >= 70 ? (
               <div>
                 <p className='message'>מזל טוב!<br /> סיימת את הבוחן בהצלחה!</p>
-                <button className='share-btn' onClick={captureAndShareScreenshot}>שתפו תוצאה עם צילום מסך</button>
+                <button className='share-btn' onClick={captureAndShareScreenshot}>שתפו צילום מסך</button>
                 <button className='try-button' onClick={retryQuiz}>נסו שוב</button>
-                <button onClick={onReset} className="reset-btn">להתחלת הלומדה מחדש</button>
+                <button onClick={onReset} className="reset-btn">להתחלת מחדש</button>
               </div>
             ) : (
               <div>

@@ -118,84 +118,118 @@
   cursor: default;
 }
 
-/* תוצאות */
+
 .results {
-  font-size: 1.2em;
-  font-family: "Heebo";
-  direction: rtl;
-  margin: 2em auto;
-  width: 90%;
-  text-align: center;
+    height: 100vh;
+    font-size: 1.2em;
+    direction: rtl;
+    text-align: center;
+    position: fixed;
+    top: 0vh;
+    width: 100vw;
+    right: 0vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/public/assets/imgs/Bg4.png");
+    overflow-y: scroll;
+    overflow-x: hidden;
+    font-family: "Assistant";
+    z-index: 10000;
 }
+
+
 
 /* ניקוד */
 .score {
-  font-family: "Karantina";
-  font-size: 3em;
-  color: rgb(89, 89, 89);
+    font-family: "Karantina";
+    font-size: 21vmin;
+    margin-top: -40vh;
+    color: rgb(255 255 255);
 }
 
 /* הודעה */
 .message {
-  font-family: "Heebo";
-  font-size: 1.2em;
-  width: 90%;
-  margin: 1em auto;
-  text-align: center;
+       color: white;
+    position: absolute;
+    font-family: "Assistant";
+    font-size: 7vmin;
+    margin-top: -4vh;
+    right: 50%;
+    font-weight: bold;
+    transform: translateX(50%);
+
+    text-align: center;
 }
 
 /* שם משתמש */
 .user-name {
-  font-family: "Heebo", Arial;
-  font-size: 1.5em;
-  margin-top: 23vh;
-  width: 90%;
-  text-align: center;
+font-family: "Assistant", Arial;
+    color: #ffffff;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 8vmin;
+    margin-top: -20vh;
+    width: 90%;
+    text-align: center;
 }
 
 /* כפתור שיתוף */
 .share-btn {
-  background-color: rgb(33, 173, 216);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  font-family: "Heebo";
-  width: 80%;
-  margin: 1.5em auto;
-  cursor: pointer;
-  display: block;
+    background-color: rgb(33, 173, 216);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 6vmin;
+    font-family: "Heebo";
+    width: 77%;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 15vh;
+    cursor: pointer;
+    display: block;
 }
 
 /* כפתור נסה שוב */
 .try-button {
-  background-color:  #2858ab;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  font-family: "Heebo", Arial;
-  width: 50%;
-  margin: 1em auto;
-  cursor: pointer;
-  display: block;
+ position: absolute;
+    background-color: #2858ab;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-family: "Assistant", Arial;
+    width: 50%;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 28vh;
+    cursor: pointer;
+    display: block;
 }
 
 /* כפתור אפס הכל */
 .reset-btn {
-  background-color:  #2858ab;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  font-family: "Heebo", Arial;
-  width: 80%;
-  margin: 2em auto;
-  cursor: pointer;
-  display: block;
+    position: absolute;
+    background-color: #2858ab;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-family: "Assistant", Arial;
+    width: 50%;
+    right: 50%;
+    transform: translateX(50%);
+    margin-top: 39vh;
+    cursor: pointer;
+    display: block;
+
 }
 
 /* כפתור סיום */
